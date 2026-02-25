@@ -11,18 +11,18 @@ export default async function Home() {
 
   return (
     <>
-      {/* Hero Section with City Skyline Background */}
+      {/* Hero Section with Video Background */}
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute top-0 left-0 w-full h-full">
-          <Image
-            src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=1920&q=80"
-            alt="Luxury City Skyline"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
+        {/* Video Background */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-cover"
+        >
+          <source src="/videos/hero.mp4" type="video/mp4" />
+        </video>
         
         {/* Overlay */}
         <div className="absolute top-0 left-0 w-full h-full bg-navy-900/70" />
