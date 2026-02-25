@@ -22,7 +22,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
-            <div className="relative h-24 w-56">
+            <div className="relative h-20 w-64">
               <Image
                 src="/images/CLEAR Horizontal Banner.png"
                 alt="ELTECH Capital"

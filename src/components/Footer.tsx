@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About */}
           <div>
-            <div className="relative h-24 w-56 mb-4">
+            <div className="relative h-32 w-72 mb-4">
               <Image
                 src="/images/CLEAR Horizontal Banner.png"
                 alt="ELTECH Capital"
