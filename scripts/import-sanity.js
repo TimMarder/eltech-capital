@@ -9,7 +9,7 @@ const client = createClient({
   token: 'skCEX9PCccWrYBFY9IVyrgLdE06HQCUhGy7aPeO15DSNgstgRHxY1BLrNh6Yqq3vKsjz0FjTUnLaUxwXCFuEugM8yJx6OkeQyJz3BnVSlLXnS74mRr7P6qHKdSHd3PnLshD5Gy8IFfQBEbfXHwkYg0xSUXE2TxnxeerKx2iCId8U0KiqsXWv'
 })
 
-// Property data from the existing site
+// Updated property data with correct image URLs from eltechdev.com
 const properties = [
   {
     _id: 'property-328-forest-dr',
@@ -27,7 +27,7 @@ const properties = [
     yearBuilt: 2024,
     description: 'This brand-new, one-of-a-kind, ultra-modern, energy-efficient luxury SMART European-style villa spans three floors, offering approximately 4,790 sq ft of living space with cathedral ceilings. The villa includes 6 bedrooms, 3 full bathrooms, and an office that can be used as an additional bedroom. Other key features include a dry Finnish sauna, a living room with a fireplace, multiple storage spaces, a dining area, and a modern Italian-designed custom kitchen with granite countertops.',
     features: ['Heating System', 'Cooling System', 'Balcony', 'Kitchen', 'Security System', 'Parking', 'Smart Home Features', 'Finnish Sauna', 'Radiant Heated Floors', 'Central HVAC', 'Wine Cooler', 'Smart WiFi Garage Door'],
-    images: ['https://eltechdev.com/wp-content/uploads/WPL/30/thimg_328-Forest-Dr-03_300x300.jpg'],
+    images: ['https://eltechdev.com/wp-content/uploads/WPL/30/img_328-Forest-Dr-03.jpg'],
     featured: true,
     hasOM: false
   },
@@ -47,7 +47,7 @@ const properties = [
     yearBuilt: 2024,
     description: 'This stunning modern villa offers luxury living with 6 bedrooms and 3 bathrooms across approximately 4,200 sq ft. Features include a gourmet kitchen with premium appliances, spacious living areas, smart home technology, and energy-efficient construction. Located in the gated Hemlock Farms community with access to pools, golf, tennis, and more.',
     features: ['Heating System', 'Cooling System', 'Balcony', 'Kitchen', 'Security System', 'Parking', 'Smart Home Features', 'Central HVAC'],
-    images: ['https://eltechdev.com/wp-content/uploads/WPL/32/thimg_118-Surrey-Dr-01_300x300.jpg'],
+    images: ['https://eltechdev.com/wp-content/uploads/WPL/32/img_1.jpg'],
     featured: true,
     hasOM: false
   },
@@ -67,7 +67,7 @@ const properties = [
     yearBuilt: 2024,
     description: 'Beautiful 4-bedroom, 3-bathroom villa in the desirable Hemlock Farms community. This modern home features an open floor plan, gourmet kitchen, and premium finishes throughout. Perfect for families seeking luxury living in a secure gated community with resort-style amenities.',
     features: ['Heating System', 'Cooling System', 'Kitchen', 'Parking', 'Smart Home Features'],
-    images: ['https://eltechdev.com/wp-content/uploads/WPL/48/thimg_104-Cedar-Ln-01_300x300.jpg'],
+    images: ['https://eltechdev.com/wp-content/uploads/WPL/48/img_1835163_3_1679510025.5176_167243.jpg'],
     featured: true,
     hasOM: false
   },
@@ -87,7 +87,7 @@ const properties = [
     yearBuilt: 2024,
     description: 'Expansive 7-bedroom, 4-bathroom luxury villa spanning approximately 5,100 sq ft. This exceptional property features multiple living areas, a gourmet kitchen, smart home technology, and premium finishes throughout. Perfect for large families or those seeking ample space in a prestigious community.',
     features: ['Heating System', 'Cooling System', 'Balcony', 'Kitchen', 'Security System', 'Parking', 'Smart Home Features', 'Multiple Living Areas'],
-    images: ['https://eltechdev.com/wp-content/uploads/WPL/50/thimg_127-Lakewood-Dr-01_300x300.jpg'],
+    images: ['https://eltechdev.com/wp-content/uploads/WPL/50/img_1111111.jpg'],
     featured: false,
     hasOM: false
   },
@@ -107,7 +107,7 @@ const properties = [
     yearBuilt: 2024,
     description: 'Elegant 5-bedroom, 3-bathroom villa offering approximately 3,800 sq ft of luxury living. Features include an open-concept design, modern kitchen with premium appliances, spacious bedrooms, and a private backyard. Located in the gated Hemlock Farms community with world-class amenities.',
     features: ['Heating System', 'Cooling System', 'Kitchen', 'Parking', 'Smart Home Features'],
-    images: ['https://eltechdev.com/wp-content/uploads/WPL/49/thimg_801-Maple-Ridge-Ct-01_300x300.jpg'],
+    images: ['https://eltechdev.com/wp-content/uploads/WPL/49/img_1111.jpg'],
     featured: false,
     hasOM: false
   },
@@ -127,30 +127,32 @@ const properties = [
     yearBuilt: 0,
     description: 'Prime multifamily investment opportunity in the Bronx. This property represents a strong investment opportunity in a desirable NYC location with strong rental demand.',
     features: ['Multifamily', 'Investment Property', 'Prime Location'],
-    images: ['/images/1739-grand-1.jpg', '/images/1739-grand-2.jpg'],
+    images: ['/images/WhatsApp Image 2025-10-12 at 23.07.16.jpeg'],
     featured: false,
     hasOM: true
   }
 ]
 
 async function importProperties() {
-  console.log('Importing properties to Sanity...')
+  console.log('Updating properties in Sanity with correct image URLs...')
   
   for (const property of properties) {
     try {
       const result = await client.createOrReplace(property)
-      console.log(`✓ Created: ${property.title}`)
+      console.log(`✓ Updated: ${property.title}`)
+      console.log(`  Image: ${property.images[0]}`)
     } catch (err) {
       console.error(`✗ Error creating ${property.title}:`, err)
     }
   }
   
-  console.log('\n✅ Done importing properties!')
+  console.log('\n✅ Done updating properties!')
   
   // Verify
-  const query = groq`*[_type == "property"]{title, price, featured}`
+  const query = groq`*[_type == "property"]{title, images}`
   const props = await client.fetch(query)
-  console.log(`\nTotal properties in Sanity: ${props.length}`)
+  console.log(`\nTotal properties: ${props.length}`)
+  props.forEach(p => console.log(`  - ${p.title}: ${p.images[0]}`))
 }
 
 importProperties()
