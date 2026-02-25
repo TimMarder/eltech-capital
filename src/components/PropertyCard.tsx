@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Bed, Bath, Square, MapPin, Lock } from 'lucide-react';
-import { Property } from '@/lib/properties';
+import { Property } from '@/lib/sanity';
 
 interface PropertyCardProps {
   property: Property;

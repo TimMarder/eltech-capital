@@ -1,12 +1,14 @@
-'use client';
-
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import PropertyCard from '@/components/PropertyCard';
-import { featuredProperties } from '@/lib/properties';
+import { getFeaturedProperties } from '@/lib/sanity';
 
-export default function Home() {
+export const revalidate = 60; // Revalidate every 60 seconds
+
+export default async function Home() {
+  const featuredProperties = await getFeaturedProperties();
+
   return (
     <>
       {/* Hero Section */}
@@ -97,7 +99,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {featuredProperties.slice(0, 3).map((property) => (
-              <PropertyCard key={property.id} property={property} />
+              <PropertyCard key={property._id} property={property} />
             ))}
           </div>
         </div>
