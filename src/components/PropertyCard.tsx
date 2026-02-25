@@ -10,21 +10,12 @@ interface PropertyCardProps {
 }
 
 export default function PropertyCard({ property }: PropertyCardProps) {
-  const formatPrice = (price: number) => {
-    if (price === 0) return 'Contact for Price';
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      maximumFractionDigits: 0,
-    }).format(price);
-  };
-
   const slug = typeof property.slug === 'string' ? property.slug : property.slug?.current;
 
   return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+    <div className="bg-navy-900 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gold-500/20">
       {/* Image */}
-      <div className="relative h-64 overflow-hidden bg-slate-200">
+      <div className="relative h-64 overflow-hidden bg-navy-800">
         {property.images[0] ? (
           <Image
             src={property.images[0]}
@@ -36,13 +27,9 @@ export default function PropertyCard({ property }: PropertyCardProps) {
               target.style.display = 'none';
             }}
           />
-        ) : (
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-slate-400 text-sm">No Image Available</span>
-          </div>
-        )}
+        ) : null}
         {property.hasOM && (
-          <div className="absolute top-4 right-4 bg-amber-500 text-white px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1">
+          <div className="absolute top-4 right-4 bg-gold-500 text-navy-900 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1">
             <Lock className="h-3 w-3" />
             OM Available
           </div>
@@ -52,17 +39,17 @@ export default function PropertyCard({ property }: PropertyCardProps) {
       {/* Content */}
       <div className="p-6">
         <div className="flex items-start justify-between mb-2">
-          <h3 className="text-lg font-bold text-slate-800 line-clamp-1">
+          <h3 className="text-lg font-bold text-white line-clamp-1">
             {property.title}
           </h3>
         </div>
         
-        <div className="flex items-center text-slate-500 text-sm mb-4">
+        <div className="flex items-center text-white/60 text-sm mb-4">
           <MapPin className="h-4 w-4 mr-1" />
           {property.city}, {property.state} {property.zipCode}
         </div>
 
-        <div className="flex items-center gap-4 text-slate-600 mb-4">
+        <div className="flex items-center gap-4 text-white/60 mb-4">
           {property.bedrooms > 0 && (
             <div className="flex items-center gap-1">
               <Bed className="h-4 w-4" />
@@ -84,12 +71,12 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         </div>
 
         <div className="flex items-center justify-between">
-          <span className="text-2xl font-bold text-slate-800">
-            {formatPrice(property.price)}
+          <span className="text-xl font-bold text-gold-400">
+            Contact for Price
           </span>
           <Link
             href={`/portfolio/${slug}`}
-            className="px-4 py-2 bg-slate-800 text-white rounded-lg font-medium hover:bg-slate-700 transition-colors"
+            className="px-4 py-2 bg-gold-500 text-navy-900 rounded-lg font-medium hover:bg-gold-400 transition-colors"
           >
             View Details
           </Link>

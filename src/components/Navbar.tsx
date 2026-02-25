@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, Building2 } from 'lucide-react';
+import Image from 'next/image';
+import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,13 +17,19 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-navy-900/95 backdrop-blur-md border-b border-gold-500/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <Building2 className="h-8 w-8 text-slate-800" />
-            <span className="text-xl font-bold text-slate-800">ELTECH Capital</span>
+          <Link href="/" className="flex items-center space-x-3">
+            <div className="relative h-10 w-40">
+              <Image
+                src="/images/CLEAR Horizontal Banner.png"
+                alt="ELTECH Capital"
+                fill
+                className="object-contain"
+              />
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -31,14 +38,14 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-slate-600 hover:text-slate-900 font-medium transition-colors"
+                className="text-white/80 hover:text-gold-400 font-medium transition-colors"
               >
                 {link.label}
               </Link>
             ))}
             <Link
               href="/login"
-              className="px-4 py-2 bg-slate-800 text-white rounded-lg font-medium hover:bg-slate-700 transition-colors"
+              className="px-4 py-2 bg-gold-500 text-navy-900 rounded-lg font-medium hover:bg-gold-400 transition-colors"
             >
               Login
             </Link>
@@ -46,7 +53,7 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2"
+            className="md:hidden p-2 text-white"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -55,12 +62,12 @@ export default function Navbar() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 border-t border-slate-100">
+          <div className="md:hidden py-4 border-t border-gold-500/30">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="block py-2 text-slate-600 hover:text-slate-900 font-medium"
+                className="block py-3 text-white/80 hover:text-gold-400 font-medium"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
@@ -68,7 +75,7 @@ export default function Navbar() {
             ))}
             <Link
               href="/login"
-              className="block mt-4 px-4 py-2 bg-slate-800 text-white rounded-lg font-medium text-center"
+              className="block mt-4 px-4 py-2 bg-gold-500 text-navy-900 rounded-lg font-medium text-center"
               onClick={() => setIsOpen(false)}
             >
               Login

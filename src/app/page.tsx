@@ -4,37 +4,51 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import PropertyCard from '@/components/PropertyCard';
 import { getFeaturedProperties } from '@/lib/sanity';
 
-export const revalidate = 60; // Revalidate every 60 seconds
+export const revalidate = 60;
 
 export default async function Home() {
   const featuredProperties = await getFeaturedProperties();
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center bg-gradient-to-br from-slate-50 to-slate-100 pt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      {/* Hero Section with Video Background */}
+      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        {/* Video Background */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-cover"
+        >
+          <source src="https://videos.pexels.com/video-files/3209668/3209668-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+        </video>
+        
+        {/* Overlay */}
+        <div className="absolute top-0 left-0 w-full h-full bg-navy-900/80" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="space-y-8">
-              <h1 className="text-5xl md:text-6xl font-bold text-slate-900 leading-tight">
-                Tap Into the Power of{' '}
-                <span className="text-slate-700">Multifamily Real Estate</span>
+              <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
+                Building Wealth Through{' '}
+                <span className="text-gold-400">Strategic Real Estate</span>
               </h1>
-              <p className="text-xl text-slate-600 max-w-lg">
-                We simplify the investment process to help you build wealth through strategic real estate investments.
+              <p className="text-xl text-white/80 max-w-lg">
+                We identify high-performing multifamily investment opportunities backed by data, experience, and integrity.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
                   href="/portfolio"
-                  className="inline-flex items-center px-6 py-3 bg-slate-800 text-white rounded-lg font-medium hover:bg-slate-700 transition-colors"
+                  className="inline-flex items-center px-6 py-3 bg-gold-500 text-navy-900 rounded-lg font-medium hover:bg-gold-400 transition-colors"
                 >
                   View Portfolio
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
                 <Link
                   href="#contact"
-                  className="inline-flex items-center px-6 py-3 border-2 border-slate-800 text-slate-800 rounded-lg font-medium hover:bg-slate-800 hover:text-white transition-colors"
+                  className="inline-flex items-center px-6 py-3 border-2 border-gold-500 text-gold-400 rounded-lg font-medium hover:bg-gold-500 hover:text-navy-900 transition-colors"
                 >
                   Let&apos;s Connect
                 </Link>
@@ -43,13 +57,13 @@ export default async function Home() {
 
             {/* Right Content - Stats */}
             <div className="grid grid-cols-2 gap-6">
-              <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
-                <div className="text-5xl font-bold text-slate-800 mb-2">18+</div>
-                <div className="text-slate-600">Years Of Experience</div>
+              <div className="bg-navy-800/80 backdrop-blur p-8 rounded-2xl border border-gold-500/30 text-center">
+                <div className="text-5xl font-bold text-gold-400 mb-2">18+</div>
+                <div className="text-white/80">Years Of Experience</div>
               </div>
-              <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
-                <div className="text-5xl font-bold text-slate-800 mb-2">50+</div>
-                <div className="text-slate-600">Investment Projects</div>
+              <div className="bg-navy-800/80 backdrop-blur p-8 rounded-2xl border border-gold-500/30 text-center">
+                <div className="text-5xl font-bold text-gold-400 mb-2">50+</div>
+                <div className="text-white/80">Investment Projects</div>
               </div>
             </div>
           </div>
@@ -57,11 +71,11 @@ export default async function Home() {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-navy-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">Our Investment Process</h2>
-            <p className="text-xl text-slate-600">We make real estate investing simple and profitable</p>
+            <h2 className="text-4xl font-bold text-white mb-4">Our Investment Process</h2>
+            <p className="text-xl text-white/70">We make real estate investing simple and profitable</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -72,11 +86,11 @@ export default async function Home() {
               { title: 'EXIT', desc: 'Maximizing investor returns is our priority.' },
             ].map((step, index) => (
               <div key={index} className="text-center">
-                <div className="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-3xl font-bold text-slate-700">{index + 1}</span>
+                <div className="w-20 h-20 bg-navy-800 rounded-full flex items-center justify-center mx-auto mb-4 border border-gold-500/30">
+                  <span className="text-3xl font-bold text-gold-400">{index + 1}</span>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">{step.title}</h3>
-                <p className="text-slate-600">{step.desc}</p>
+                <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
+                <p className="text-white/60">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -84,14 +98,14 @@ export default async function Home() {
       </section>
 
       {/* Featured Properties */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-20 bg-navy-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">Featured Properties</h2>
-            <p className="text-xl text-slate-600 mb-8">Discover our premium investment opportunities</p>
+            <h2 className="text-4xl font-bold text-white mb-4">Featured Properties</h2>
+            <p className="text-xl text-white/70 mb-8">Discover our premium investment opportunities</p>
             <Link
               href="/portfolio"
-              className="inline-flex items-center text-slate-800 font-medium hover:text-slate-600"
+              className="inline-flex items-center text-gold-400 font-medium hover:text-gold-300"
             >
               View Full Portfolio <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
@@ -106,14 +120,14 @@ export default async function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-white">
+      <section id="about" className="py-20 bg-navy-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-slate-900 mb-6">
+              <h2 className="text-4xl font-bold text-white mb-6">
                 Building Wealth Through Strategic Real Estate Investments
               </h2>
-              <p className="text-lg text-slate-600 mb-6">
+              <p className="text-lg text-white/70 mb-6">
                 At ELTECH Capital, we specialize in creating lasting value through strategic real estate investments. Our mission is to help investors build wealth and stability by identifying high-performing multifamily and commercial opportunities backed by data, experience, and integrity.
               </p>
               <ul className="space-y-4">
@@ -124,13 +138,13 @@ export default async function Home() {
                   'Transparent investor communications',
                 ].map((item, index) => (
                   <li key={index} className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-slate-700" />
-                    <span className="text-slate-600">{item}</span>
+                    <CheckCircle2 className="h-5 w-5 text-gold-400" />
+                    <span className="text-white/70">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="relative h-96 bg-slate-200 rounded-2xl overflow-hidden">
+            <div className="relative h-96 bg-navy-800 rounded-2xl overflow-hidden border border-gold-500/30">
               <Image
                 src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800"
                 alt="Luxury real estate"
@@ -143,11 +157,11 @@ export default async function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-slate-50">
+      <section id="contact" className="py-20 bg-navy-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-4xl font-bold text-slate-900 mb-6">Let&apos;s Connect</h2>
-            <p className="text-lg text-slate-600 mb-8">
+            <h2 className="text-4xl font-bold text-white mb-6">Let&apos;s Connect</h2>
+            <p className="text-lg text-white/70 mb-8">
               Ready to build wealth through real estate? Get in touch with us today.
             </p>
             <form className="space-y-4">
@@ -155,22 +169,22 @@ export default async function Home() {
                 <input
                   type="text"
                   placeholder="Name *"
-                  className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-slate-800 focus:outline-none"
+                  className="w-full px-4 py-3 rounded-lg bg-navy-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none"
                 />
                 <input
                   type="email"
                   placeholder="Email *"
-                  className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-slate-800 focus:outline-none"
+                  className="w-full px-4 py-3 rounded-lg bg-navy-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none"
                 />
               </div>
               <textarea
                 placeholder="Message"
                 rows={4}
-                className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-slate-800 focus:outline-none"
+                className="w-full px-4 py-3 rounded-lg bg-navy-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none"
               />
               <button
                 type="submit"
-                className="w-full px-6 py-3 bg-slate-800 text-white rounded-lg font-medium hover:bg-slate-700 transition-colors"
+                className="w-full px-6 py-3 bg-gold-500 text-navy-900 rounded-lg font-medium hover:bg-gold-400 transition-colors"
               >
                 Submit
               </button>
