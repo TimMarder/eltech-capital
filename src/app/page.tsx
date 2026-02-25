@@ -11,21 +11,21 @@ export default async function Home() {
 
   return (
     <>
-      {/* Hero Section with Video Background */}
+      {/* Hero Section with City Skyline Background */}
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        {/* Video Background */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute top-0 left-0 w-full h-full object-cover"
-        >
-          <source src="https://cdn.pixabay.com/video/2020/05/25/40130-424930032_large.mp4" type="video/mp4" />
-        </video>
+        {/* Background Image */}
+        <div className="absolute top-0 left-0 w-full h-full">
+          <Image
+            src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=1920&q=80"
+            alt="City Skyline"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
         
         {/* Overlay */}
-        <div className="absolute top-0 left-0 w-full h-full bg-navy-900/80" />
+        <div className="absolute top-0 left-0 w-full h-full bg-navy-900/70" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
