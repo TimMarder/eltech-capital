@@ -19,6 +19,8 @@ export default function PropertyCard({ property }: PropertyCardProps) {
     }).format(price);
   };
 
+  const slug = typeof property.slug === 'string' ? property.slug : property.slug?.current;
+
   return (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
       {/* Image */}
@@ -30,15 +32,15 @@ export default function PropertyCard({ property }: PropertyCardProps) {
             fill
             className="object-cover hover:scale-105 transition-transform duration-500"
             onError={(e) => {
-              // Hide image on error, show fallback
               const target = e.target as HTMLImageElement;
               target.style.display = 'none';
             }}
           />
-        ) : null}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-slate-400 text-sm">No Image Available</span>
-        </div>
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="text-slate-400 text-sm">No Image Available</span>
+          </div>
+        )}
         {property.hasOM && (
           <div className="absolute top-4 right-4 bg-amber-500 text-white px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1">
             <Lock className="h-3 w-3" />
@@ -86,7 +88,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
             {formatPrice(property.price)}
           </span>
           <Link
-            href={`/portfolio/${property.slug}`}
+            href={`/portfolio/${slug}`}
             className="px-4 py-2 bg-slate-800 text-white rounded-lg font-medium hover:bg-slate-700 transition-colors"
           >
             View Details
