@@ -124,10 +124,6 @@ export default async function PropertyPage({ params }: Props) {
           {/* Sidebar */}
           <div className="lg:col-span-1">
             <div className="bg-navy-800 rounded-2xl p-6 border border-gold-500/30 sticky top-24">
-              <div className="text-3xl font-bold text-gold-400 mb-6">
-                Contact for Price
-              </div>
-
               {property.hasOM && (
                 <div className="bg-navy-900 border border-gold-500/30 rounded-lg p-4 mb-4">
                   <div className="flex items-center gap-2 text-gold-400 font-medium mb-2">

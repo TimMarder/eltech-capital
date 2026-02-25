@@ -70,10 +70,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
           )}
         </div>
 
-        <div className="flex items-center justify-between">
-          <span className="text-xl font-bold text-gold-400">
-            Contact for Price
-          </span>
+        <div className="flex items-center justify-end">
           <Link
             href={`/portfolio/${slug}`}
             className="px-4 py-2 bg-gold-500 text-navy-900 rounded-lg font-medium hover:bg-gold-400 transition-colors"

@@ -21,7 +21,7 @@ export default async function Home() {
           playsInline
           className="absolute top-0 left-0 w-full h-full object-cover"
         >
-          <source src="https://videos.pexels.com/video-files/3209668/3209668-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+          <source src="https://cdn.pixabay.com/video/2020/05/25/40130-424930032_large.mp4" type="video/mp4" />
         </video>
         
         {/* Overlay */}
