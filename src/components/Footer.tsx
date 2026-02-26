@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="text-left">
             <div className="relative h-[346px] w-[194px] mb-4">
               <Image
-                src="/images/CLEAR Horizontal Banner NO MARGINS.jpeg"
+                src="/images/CLEAR Horizontal Banner without margins.png"
                 alt="ELTECH Capital"
                 fill
                 className="object-contain object-left"
