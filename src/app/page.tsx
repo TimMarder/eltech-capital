@@ -71,7 +71,7 @@ export default async function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-navy-900">
+      <section id="about" className="py-20 bg-navy-900 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -108,7 +108,7 @@ export default async function Home() {
       </section>
 
       {/* Process Section */}
-      <section id="process" className="py-20 bg-navy-900">
+      <section id="process" className="py-20 bg-navy-800 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">Our Investment Process</h2>
@@ -135,7 +135,7 @@ export default async function Home() {
       </section>
 
       {/* Featured Properties */}
-      <section className="py-20 bg-navy-800">
+      <section className="py-20 bg-navy-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">Featured Properties</h2>
@@ -157,7 +157,7 @@ export default async function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-navy-800">
+      <section id="contact" className="py-20 bg-navy-800 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-white mb-6">Let&apos;s Connect</h2>
