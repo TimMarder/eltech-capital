@@ -5,11 +5,11 @@ import { Mail, Phone, Facebook, Twitter, Youtube } from 'lucide-react';
 export default function Footer() {
   return (
     <footer className="bg-navy-900 text-white border-t border-gold-500/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About */}
-          <div className="text-left -mt-4">
-            <div className="relative h-[519px] w-[291px] -mb-8">
+          <div className="text-left">
+            <div className="relative h-24 w-[250px]">
               <Image
                 src="/images/CLEAR Horizontal Banner without margins.png"
                 alt="ELTECH Capital"
@@ -17,14 +17,14 @@ export default function Footer() {
                 className="object-contain object-left"
               />
             </div>
-            <p className="text-white/70">
+            <p className="text-white/70 text-sm mt-3">
               We simplify the investment process to help you build wealth through strategic multifamily real estate investments.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-2 text-gold-400">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-3 text-gold-400">Quick Links</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/" className="text-white/70 hover:text-gold-400 transition-colors">
@@ -37,12 +37,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="#about" className="text-white/70 hover:text-gold-400 transition-colors">
+                <a href="/#about" className="text-white/70 hover:text-gold-400 transition-colors">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="#contact" className="text-white/70 hover:text-gold-400 transition-colors">
+                <a href="/#contact" className="text-white/70 hover:text-gold-400 transition-colors">
                   Contact Us
                 </a>
               </li>
@@ -51,8 +51,8 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-lg font-semibold mb-2 text-gold-400">Contact Info</h3>
-            <ul className="space-y-3">
+            <h3 className="text-lg font-semibold mb-3 text-gold-400">Contact Info</h3>
+            <ul className="space-y-2">
               <li className="flex items-center gap-2 text-white/70">
                 <Mail className="h-4 w-4" />
                 info@eltechcapital.com
@@ -62,7 +62,7 @@ export default function Footer() {
                 +1 (888) 886-1021
               </li>
             </ul>
-            <div className="flex items-center gap-4 mt-6">
+            <div className="flex items-center gap-4 mt-4">
               <a href="#" className="text-white/70 hover:text-gold-400 transition-colors">
                 <Facebook className="h-5 w-5" />
               </a>
@@ -76,7 +76,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gold-500/20 mt-4 pt-4 text-center text-white/50">
+        <div className="border-t border-gold-500/20 mt-6 pt-4 text-center text-white/50 text-sm">
           <p>© {new Date().getFullYear()} ELTECH Capital. All rights reserved.</p>
         </div>
       </div>
