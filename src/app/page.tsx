@@ -70,8 +70,45 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* About Section */}
+      <section id="about" className="py-20 bg-navy-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl font-bold text-white mb-6">
+                Building Wealth Through Strategic Real Estate Investments
+              </h2>
+              <p className="text-lg text-white/70 mb-6">
+                At ELTECH Capital, we specialize in creating lasting value through strategic real estate investments. Our mission is to help investors build wealth and stability by identifying high-performing multifamily and commercial opportunities backed by data, experience, and integrity.
+              </p>
+              <ul className="space-y-4">
+                {[
+                  'Proven investment strategies',
+                  'Data-driven property selection',
+                  'Experienced management team',
+                  'Transparent investor communications',
+                ].map((item, index) => (
+                  <li key={index} className="flex items-center gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-gold-400" />
+                    <span className="text-white/70">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="relative h-96 bg-navy-800 rounded-2xl overflow-hidden border border-gold-500/30">
+              <Image
+                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800"
+                alt="Luxury real estate"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Process Section */}
-      <section className="py-20 bg-navy-900">
+      <section id="process" className="py-20 bg-navy-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">Our Investment Process</h2>
@@ -115,43 +152,6 @@ export default async function Home() {
             {featuredProperties.slice(0, 3).map((property) => (
               <PropertyCard key={property._id} property={property} />
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="py-20 bg-navy-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl font-bold text-white mb-6">
-                Building Wealth Through Strategic Real Estate Investments
-              </h2>
-              <p className="text-lg text-white/70 mb-6">
-                At ELTECH Capital, we specialize in creating lasting value through strategic real estate investments. Our mission is to help investors build wealth and stability by identifying high-performing multifamily and commercial opportunities backed by data, experience, and integrity.
-              </p>
-              <ul className="space-y-4">
-                {[
-                  'Proven investment strategies',
-                  'Data-driven property selection',
-                  'Experienced management team',
-                  'Transparent investor communications',
-                ].map((item, index) => (
-                  <li key={index} className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-gold-400" />
-                    <span className="text-white/70">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="relative h-96 bg-navy-800 rounded-2xl overflow-hidden border border-gold-500/30">
-              <Image
-                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800"
-                alt="Luxury real estate"
-                fill
-                className="object-cover"
-              />
-            </div>
           </div>
         </div>
       </section>
