@@ -102,13 +102,13 @@ export default function ContactForm() {
         >
           <CheckCircle className="h-16 w-16 text-green-400 mx-auto mb-4" />
         </motion.div>
-        <h3 className="text-xl font-bold text-white mb-2">Message Sent!</h3>
-        <p className="text-white/70 mb-4">
-          Thank you for reaching out. We'll get back to you within 24-48 hours.
+        <h3 className="text-xl font-bold text-[#f4f3f1] mb-2">Message Sent!</h3>
+        <p className="text-[#f4f3f1]/70 mb-4">
+          Thank you for reaching out. We&apos;ll get back to you within 24-48 hours.
         </p>
         <motion.button
           onClick={() => setStatus('idle')}
-          className="text-gold-400 hover:text-gold-300 font-medium"
+          className="text-[#e0bd6b] hover:text-[#edd791] font-medium"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -143,8 +143,8 @@ export default function ContactForm() {
           whileFocus={{ scale: 1.02 }}
           transition={{ type: 'spring', stiffness: 300 }}
         >
-          <label className="block text-sm font-medium text-white/80 mb-1">
-            First Name *
+          <label className="block text-sm font-medium text-[#f4f3f1]/80 mb-1">
+            Your Name *
           </label>
           <input
             type="text"
@@ -152,52 +152,16 @@ export default function ContactForm() {
             value={formData.firstName}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 rounded-lg bg-gray-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/20 transition-all"
-            placeholder="John"
+            className="w-full px-4 py-3 rounded-lg bg-[#1a1f26] border border-[#2c323b] text-[#f4f3f1] placeholder-[#f4f3f1]/30 focus:border-[#d4a33b] focus:outline-none focus:ring-2 focus:ring-[#d4a33b]/20 transition-all"
+            placeholder="John Doe"
           />
         </motion.div>
         <motion.div
           whileFocus={{ scale: 1.02 }}
           transition={{ type: 'spring', stiffness: 300 }}
         >
-          <label className="block text-sm font-medium text-white/80 mb-1">
-            Last Name *
-          </label>
-          <input
-            type="text"
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-3 rounded-lg bg-gray-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/20 transition-all"
-            placeholder="Doe"
-          />
-        </motion.div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <motion.div
-          whileFocus={{ scale: 1.02 }}
-          transition={{ type: 'spring', stiffness: 300 }}
-        >
-          <label className="block text-sm font-medium text-white/80 mb-1">
-            Phone Number
-          </label>
-          <input
-            type="tel"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg bg-gray-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/20 transition-all"
-            placeholder="(555) 123-4567"
-          />
-        </motion.div>
-        <motion.div
-          whileFocus={{ scale: 1.02 }}
-          transition={{ type: 'spring', stiffness: 300 }}
-        >
-          <label className="block text-sm font-medium text-white/80 mb-1">
-            Email Address *
+          <label className="block text-sm font-medium text-[#f4f3f1]/80 mb-1">
+            Your Email *
           </label>
           <input
             type="email"
@@ -205,7 +169,7 @@ export default function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 rounded-lg bg-gray-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/20 transition-all"
+            className="w-full px-4 py-3 rounded-lg bg-[#1a1f26] border border-[#2c323b] text-[#f4f3f1] placeholder-[#f4f3f1]/30 focus:border-[#d4a33b] focus:outline-none focus:ring-2 focus:ring-[#d4a33b]/20 transition-all"
             placeholder="john@example.com"
           />
         </motion.div>
@@ -215,15 +179,15 @@ export default function ContactForm() {
         whileFocus={{ scale: 1.02 }}
         transition={{ type: 'spring', stiffness: 300 }}
       >
-        <label className="block text-sm font-medium text-white/80 mb-1">
-          Message
+        <label className="block text-sm font-medium text-[#f4f3f1]/80 mb-1">
+          Your Message
         </label>
         <textarea
           name="message"
           value={formData.message}
           onChange={handleChange}
           rows={4}
-          className="w-full px-4 py-3 rounded-lg bg-gray-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/20 resize-none transition-all"
+          className="w-full px-4 py-3 rounded-lg bg-[#1a1f26] border border-[#2c323b] text-[#f4f3f1] placeholder-[#f4f3f1]/30 focus:border-[#d4a33b] focus:outline-none focus:ring-2 focus:ring-[#d4a33b]/20 resize-none transition-all"
           placeholder="Tell us about your investment goals..."
         />
       </motion.div>
@@ -231,15 +195,15 @@ export default function ContactForm() {
       <motion.button
         type="submit"
         disabled={isLoading}
-        className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gold-500 text-gray-900 rounded-lg font-medium hover:bg-gold-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-        whileHover={{ scale: isLoading ? 1 : 1.02, boxShadow: '0 0 30px rgba(197, 160, 89, 0.4)' }}
+        className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-[#d4a33b] text-[#0d1117] rounded-lg font-medium hover:bg-[#e0bd6b] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        whileHover={{ scale: isLoading ? 1 : 1.02, boxShadow: '0 0 30px rgba(212, 163, 59, 0.4)' }}
         whileTap={{ scale: isLoading ? 1 : 0.98 }}
         transition={{ type: 'spring', stiffness: 300 }}
       >
         {isLoading ? (
           <>
             <motion.div
-              className="w-5 h-5 border-2 border-gray-900/30 border-t-gray-900 rounded-full"
+              className="w-5 h-5 border-2 border-[#0d1117]/30 border-t-[#0d1117] rounded-full"
               animate={{ rotate: 360 }}
               transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
             />
@@ -247,7 +211,7 @@ export default function ContactForm() {
           </>
         ) : (
           <>
-            Submit
+            Send Message
             <Send className="h-4 w-4" />
           </>
         )}

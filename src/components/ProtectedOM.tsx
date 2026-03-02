@@ -29,8 +29,8 @@ export default function ProtectedOM({ propertyTitle, omUrl }: ProtectedOMProps) 
 
   if (isLoading) {
     return (
-      <div className="bg-gray-900 border border-gold-500/30 rounded-lg p-4 mb-4">
-        <div className="animate-pulse flex items-center gap-2 text-gold-400">
+      <div className="bg-[#232830] border border-[#d4a33b]/30 rounded-lg p-4 mb-4">
+        <div className="animate-pulse flex items-center gap-2 text-[#e0bd6b]">
           <Lock className="h-4 w-4" />
           <span>Loading...</span>
         </div>
@@ -40,17 +40,17 @@ export default function ProtectedOM({ propertyTitle, omUrl }: ProtectedOMProps) 
 
   if (!user) {
     return (
-      <div className="bg-gray-900 border border-gold-500/30 rounded-lg p-4 mb-4">
-        <div className="flex items-center gap-2 text-gold-400 font-medium mb-2">
+      <div className="bg-[#232830] border border-[#d4a33b]/30 rounded-lg p-4 mb-4">
+        <div className="flex items-center gap-2 text-[#e0bd6b] font-medium mb-2">
           <Lock className="h-4 w-4" />
           Investor Only
         </div>
-        <p className="text-sm text-white/60 mb-3">
+        <p className="text-sm text-[#f4f3f1]/60 mb-3">
           Login to access the Offering Memorandum for {propertyTitle}.
         </p>
         <Link
           href="/login"
-          className="block w-full px-4 py-2 bg-gold-500 text-gray-900 text-center rounded-lg font-medium hover:bg-gold-400 transition-colors"
+          className="block w-full px-4 py-2 bg-[#d4a33b] text-[#0d1117] text-center rounded-lg font-medium hover:bg-[#e0bd6b] transition-colors"
         >
           Login to Access OM
         </Link>
@@ -60,12 +60,12 @@ export default function ProtectedOM({ propertyTitle, omUrl }: ProtectedOMProps) 
 
   // User is logged in - show the OM
   return (
-    <div className="bg-gray-900 border border-green-500/30 rounded-lg p-4 mb-4">
+    <div className="bg-[#232830] border border-green-500/30 rounded-lg p-4 mb-4">
       <div className="flex items-center gap-2 text-green-400 font-medium mb-2">
         <FileText className="h-4 w-4" />
         Offering Memorandum Available
       </div>
-      <p className="text-sm text-white/60 mb-3">
+      <p className="text-sm text-[#f4f3f1]/60 mb-3">
         You have access to the OM for {propertyTitle}.
       </p>
       {omUrl ? (
@@ -79,7 +79,7 @@ export default function ProtectedOM({ propertyTitle, omUrl }: ProtectedOMProps) 
           Download OM
         </a>
       ) : (
-        <div className="text-sm text-white/50 text-center py-2">
+        <div className="text-sm text-[#f4f3f1]/50 text-center py-2">
           OM coming soon
         </div>
       )}

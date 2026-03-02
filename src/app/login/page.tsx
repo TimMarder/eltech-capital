@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
+import { motion } from 'framer-motion';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -60,12 +61,20 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 flex items-center justify-center pt-20 pb-16">
-      <div className="max-w-md w-full mx-4">
-        <div className="bg-gray-800 rounded-2xl shadow-lg p-8 border border-gold-500/30">
-          <h1 className="text-2xl font-bold text-white text-center mb-6">
-            {isSignUp ? 'Create Your Account' : 'Login to Your Account'}
+    <div className="min-h-screen bg-[#14181f] flex items-center justify-center pt-20 pb-16">
+      <motion.div 
+        className="max-w-md w-full mx-4"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="bg-[#1a1f26] rounded-2xl shadow-lg p-8 border border-[#d4a33b]/30">
+          <h1 className="text-2xl font-bold text-[#f4f3f1] text-center mb-2">
+            {isSignUp ? 'Create Your Account' : 'Welcome Back'}
           </h1>
+          <p className="text-[#f4f3f1]/60 text-center mb-6">
+            {isSignUp ? 'Sign up to access exclusive investment opportunities' : 'Login to access your investor account'}
+          </p>
           
           {error && (
             <div className="mb-4 p-3 bg-red-900/50 border border-red-500 text-red-300 rounded-lg text-sm">
@@ -83,26 +92,26 @@ export default function LoginPage() {
             {isSignUp && (
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-white/80 mb-1">
+                  <label className="block text-sm font-medium text-[#f4f3f1]/80 mb-1">
                     First Name
                   </label>
                   <input
                     type="text"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
-                    className="w-full px-4 py-3 rounded-lg bg-gray-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none"
+                    className="w-full px-4 py-3 rounded-lg bg-[#232830] border border-[#2c323b] text-[#f4f3f1] placeholder-[#f4f3f1]/30 focus:border-[#d4a33b] focus:outline-none"
                     required={isSignUp}
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-white/80 mb-1">
+                  <label className="block text-sm font-medium text-[#f4f3f1]/80 mb-1">
                     Last Name
                   </label>
                   <input
                     type="text"
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
-                    className="w-full px-4 py-3 rounded-lg bg-gray-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none"
+                    className="w-full px-4 py-3 rounded-lg bg-[#232830] border border-[#2c323b] text-[#f4f3f1] placeholder-[#f4f3f1]/30 focus:border-[#d4a33b] focus:outline-none"
                     required={isSignUp}
                   />
                 </div>
@@ -110,27 +119,27 @@ export default function LoginPage() {
             )}
 
             <div>
-              <label className="block text-sm font-medium text-white/80 mb-1">
+              <label className="block text-sm font-medium text-[#f4f3f1]/80 mb-1">
                 Email Address
               </label>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg bg-gray-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none"
+                className="w-full px-4 py-3 rounded-lg bg-[#232830] border border-[#2c323b] text-[#f4f3f1] placeholder-[#f4f3f1]/30 focus:border-[#d4a33b] focus:outline-none"
                 required
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-white/80 mb-1">
+              <label className="block text-sm font-medium text-[#f4f3f1]/80 mb-1">
                 Password
               </label>
               <input
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg bg-gray-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none"
+                className="w-full px-4 py-3 rounded-lg bg-[#232830] border border-[#2c323b] text-[#f4f3f1] placeholder-[#f4f3f1]/30 focus:border-[#d4a33b] focus:outline-none"
                 required
                 minLength={6}
               />
@@ -139,10 +148,10 @@ export default function LoginPage() {
             {!isSignUp && (
               <div className="flex items-center justify-between">
                 <label className="flex items-center">
-                  <input type="checkbox" className="mr-2" />
-                  <span className="text-sm text-white/60">Remember Me</span>
+                  <input type="checkbox" className="mr-2 accent-[#d4a33b]" />
+                  <span className="text-sm text-[#f4f3f1]/60">Remember Me</span>
                 </label>
-                <a href="#" className="text-sm text-gold-400 hover:text-gold-300">
+                <a href="#" className="text-sm text-[#e0bd6b] hover:text-[#edd791]">
                   Forgot Password?
                 </a>
               </div>
@@ -151,23 +160,23 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full px-4 py-3 bg-gold-500 text-gray-900 rounded-lg font-medium hover:bg-gold-400 transition-colors disabled:opacity-50"
+              className="w-full px-4 py-3 bg-[#d4a33b] text-[#0d1117] rounded-lg font-medium hover:bg-[#e0bd6b] transition-colors disabled:opacity-50"
             >
               {isLoading ? 'Processing...' : isSignUp ? 'Create Account' : 'Log In'}
             </button>
           </form>
 
-          <p className="mt-6 text-center text-white/60">
+          <p className="mt-6 text-center text-[#f4f3f1]/60">
             {isSignUp ? 'Already have an account?' : "Don't have an account?"}{' '}
             <button 
               onClick={() => { setIsSignUp(!isSignUp); setError(''); setMessage(''); }}
-              className="text-gold-400 font-medium hover:text-gold-300"
+              className="text-[#e0bd6b] font-medium hover:text-[#edd791]"
             >
               {isSignUp ? 'Log In' : 'Register Now'}
             </button>
           </p>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

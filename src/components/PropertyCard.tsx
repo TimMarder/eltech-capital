@@ -15,11 +15,11 @@ export default function PropertyCard({ property }: PropertyCardProps) {
 
   return (
     <motion.div 
-      className="bg-gray-900 rounded-xl shadow-lg overflow-hidden border border-gold-500/20 property-card"
+      className="bg-[#1a1f26] rounded-xl shadow-lg overflow-hidden border border-[#d4a33b]/20 property-card"
       whileHover={{ 
         y: -10,
-        borderColor: 'rgba(197, 160, 89, 0.5)',
-        boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(197, 160, 89, 0.2)'
+        borderColor: 'rgba(212, 163, 59, 0.5)',
+        boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(212, 163, 59, 0.2)'
       }}
       transition={{ 
         type: 'spring', 
@@ -28,7 +28,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
       }}
     >
       {/* Image */}
-      <div className="relative h-64 overflow-hidden bg-gray-800">
+      <div className="relative h-64 overflow-hidden bg-[#232830]">
         {property.images[0] ? (
           <motion.div
             className="w-full h-full"
@@ -49,7 +49,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         ) : null}
         {property.hasOM && (
           <motion.div 
-            className="absolute top-4 right-4 bg-gold-500 text-gray-900 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1"
+            className="absolute top-4 right-4 bg-[#d4a33b] text-[#0d1117] px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1"
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, type: 'spring', stiffness: 300 }}
@@ -58,13 +58,14 @@ export default function PropertyCard({ property }: PropertyCardProps) {
             OM Available
           </motion.div>
         )}
+
       </div>
 
       {/* Content */}
       <div className="p-6">
         <div className="flex items-start justify-between mb-2">
           <motion.h3 
-            className="text-lg font-bold text-white line-clamp-1"
+            className="text-lg font-bold text-[#f4f3f1] line-clamp-1"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.1 }}
@@ -74,7 +75,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         </div>
         
         <motion.div 
-          className="flex items-center text-white/60 text-sm mb-4"
+          className="flex items-center text-[#f4f3f1]/60 text-sm mb-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
@@ -84,7 +85,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         </motion.div>
 
         <motion.div 
-          className="flex items-center gap-4 text-white/60 mb-4"
+          className="flex items-center gap-4 text-[#f4f3f1]/60 mb-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
@@ -104,24 +105,26 @@ export default function PropertyCard({ property }: PropertyCardProps) {
           {property.squareFeet > 0 && (
             <div className="flex items-center gap-1">
               <Square className="h-4 w-4" />
-              <span className="text-sm">{property.squareFeet.toLocaleString()} sqft</span>
+              <span className="text-sm">{property.squareFeet.toLocaleString()}</span>
             </div>
           )}
         </motion.div>
 
-        <div className="flex items-center justify-end">
+        <div className="flex items-center justify-between">
+          <span className="text-[#e0bd6b] font-semibold">
+            {property.price ? `$${property.price.toLocaleString()}` : 'Contact for Pricing'}
+          </span>
           <Link href={`/portfolio/${slug}`}>
             <motion.div
-              className="px-4 py-2 bg-gold-500 text-gray-900 rounded-lg font-medium transition-colors cursor-pointer"
-              whileHover={{ 
-                scale: 1.05,
-                backgroundColor: '#d4b06a',
-                boxShadow: '0 0 20px rgba(197, 160, 89, 0.5)'
-              }}
+              className="flex items-center gap-1 text-[#f4f3f1]/80 hover:text-[#e0bd6b] font-medium transition-colors cursor-pointer group"
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: 'spring', stiffness: 300 }}
             >
-              View Details
+              Details
+              <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
             </motion.div>
           </Link>
         </div>
