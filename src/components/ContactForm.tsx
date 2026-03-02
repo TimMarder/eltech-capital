@@ -152,7 +152,7 @@ export default function ContactForm() {
             value={formData.firstName}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 rounded-lg bg-navy-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/20 transition-all"
+            className="w-full px-4 py-3 rounded-lg bg-gray-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/20 transition-all"
             placeholder="John"
           />
         </motion.div>
@@ -169,7 +169,7 @@ export default function ContactForm() {
             value={formData.lastName}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 rounded-lg bg-navy-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/20 transition-all"
+            className="w-full px-4 py-3 rounded-lg bg-gray-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/20 transition-all"
             placeholder="Doe"
           />
         </motion.div>
@@ -188,7 +188,7 @@ export default function ContactForm() {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg bg-navy-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/20 transition-all"
+            className="w-full px-4 py-3 rounded-lg bg-gray-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/20 transition-all"
             placeholder="(555) 123-4567"
           />
         </motion.div>
@@ -205,7 +205,7 @@ export default function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 rounded-lg bg-navy-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/20 transition-all"
+            className="w-full px-4 py-3 rounded-lg bg-gray-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/20 transition-all"
             placeholder="john@example.com"
           />
         </motion.div>
@@ -223,7 +223,7 @@ export default function ContactForm() {
           value={formData.message}
           onChange={handleChange}
           rows={4}
-          className="w-full px-4 py-3 rounded-lg bg-navy-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/20 resize-none transition-all"
+          className="w-full px-4 py-3 rounded-lg bg-gray-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/20 resize-none transition-all"
           placeholder="Tell us about your investment goals..."
         />
       </motion.div>
@@ -231,7 +231,7 @@ export default function ContactForm() {
       <motion.button
         type="submit"
         disabled={isLoading}
-        className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gold-500 text-navy-900 rounded-lg font-medium hover:bg-gold-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gold-500 text-gray-900 rounded-lg font-medium hover:bg-gold-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         whileHover={{ scale: isLoading ? 1 : 1.02, boxShadow: '0 0 30px rgba(197, 160, 89, 0.4)' }}
         whileTap={{ scale: isLoading ? 1 : 0.98 }}
         transition={{ type: 'spring', stiffness: 300 }}
@@ -239,7 +239,7 @@ export default function ContactForm() {
         {isLoading ? (
           <>
             <motion.div
-              className="w-5 h-5 border-2 border-navy-900/30 border-t-navy-900 rounded-full"
+              className="w-5 h-5 border-2 border-gray-900/30 border-t-gray-900 rounded-full"
               animate={{ rotate: 360 }}
               transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
             />

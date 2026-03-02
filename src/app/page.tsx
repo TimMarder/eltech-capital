@@ -90,7 +90,7 @@ export default function Home() {
       {/* Hero Section with Parallax */}
       <section ref={heroRef} className="relative min-h-screen flex items-center pt-20 overflow-hidden">
         {/* Animated Gradient Background (fallback for video) */}
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900 animate-gradient" />
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 animate-gradient" />
         
         {/* Video Background */}
         <motion.video
@@ -105,7 +105,7 @@ export default function Home() {
         </motion.video>
         
         {/* Overlay */}
-        <div className="absolute top-0 left-0 w-full h-full bg-navy-900/70" />
+        <div className="absolute top-0 left-0 w-full h-full bg-gray-900/70" />
         
         <motion.div 
           className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20"
@@ -144,14 +144,14 @@ export default function Home() {
               >
                 <Link
                   href="/portfolio"
-                  className="inline-flex items-center px-6 py-3 bg-gold-500 text-navy-900 rounded-lg font-medium hover:bg-gold-400 hover:scale-105 hover:shadow-gold transition-all duration-300"
+                  className="inline-flex items-center px-6 py-3 bg-gold-500 text-gray-900 rounded-lg font-medium hover:bg-gold-400 hover:scale-105 hover:shadow-gold transition-all duration-300"
                 >
                   View Portfolio
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
                 <Link
                   href="#contact"
-                  className="inline-flex items-center px-6 py-3 border-2 border-gold-500 text-gold-400 rounded-lg font-medium hover:bg-gold-500 hover:text-navy-900 hover:scale-105 transition-all duration-300"
+                  className="inline-flex items-center px-6 py-3 border-2 border-gold-500 text-gold-400 rounded-lg font-medium hover:bg-gold-500 hover:text-gray-900 hover:scale-105 transition-all duration-300"
                 >
                   Let&apos;s Connect
                 </Link>
@@ -166,7 +166,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <motion.div 
-                className="bg-navy-800/80 backdrop-blur p-8 rounded-2xl border border-gold-500/30 text-center stat-card"
+                className="bg-gray-800/80 backdrop-blur p-8 rounded-2xl border border-gold-500/30 text-center stat-card"
                 whileHover={{ scale: 1.05, borderColor: 'rgba(197, 160, 89, 0.6)' }}
                 transition={{ type: 'spring', stiffness: 300 }}
               >
@@ -176,7 +176,7 @@ export default function Home() {
                 <div className="text-white/80">Years Of Experience</div>
               </motion.div>
               <motion.div 
-                className="bg-navy-800/80 backdrop-blur p-8 rounded-2xl border border-gold-500/30 text-center stat-card"
+                className="bg-gray-800/80 backdrop-blur p-8 rounded-2xl border border-gold-500/30 text-center stat-card"
                 whileHover={{ scale: 1.05, borderColor: 'rgba(197, 160, 89, 0.6)' }}
                 transition={{ type: 'spring', stiffness: 300 }}
               >
@@ -191,7 +191,7 @@ export default function Home() {
       </section>
 
       {/* About Section with Scroll Animations */}
-      <section id="about" ref={aboutRef} className="py-20 bg-navy-900 scroll-mt-20">
+      <section id="about" ref={aboutRef} className="py-20 bg-gray-900 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
@@ -227,7 +227,7 @@ export default function Home() {
               </ul>
             </motion.div>
             <motion.div 
-              className="relative h-96 bg-navy-800 rounded-2xl overflow-hidden border border-gold-500/30"
+              className="relative h-96 bg-gray-800 rounded-2xl overflow-hidden border border-gold-500/30"
               variants={itemVariants}
               whileHover={{ scale: 1.02, borderColor: 'rgba(197, 160, 89, 0.5)' }}
             >
@@ -243,7 +243,7 @@ export default function Home() {
       </section>
 
       {/* Process Section with Step Animations */}
-      <section id="process" ref={processRef} className="py-20 bg-navy-800 scroll-mt-20">
+      <section id="process" ref={processRef} className="py-20 bg-gray-800 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -275,7 +275,7 @@ export default function Home() {
                 transition={{ type: 'spring', stiffness: 300 }}
               >
                 <motion.div 
-                  className="w-20 h-20 bg-navy-800 rounded-full flex items-center justify-center mx-auto mb-4 border border-gold-500/30"
+                  className="w-20 h-20 bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4 border border-gold-500/30"
                   whileHover={{ 
                     scale: 1.1, 
                     borderColor: 'rgba(197, 160, 89, 0.8)',
@@ -293,7 +293,7 @@ export default function Home() {
       </section>
 
       {/* Featured Properties with Stagger Animation */}
-      <section ref={portfolioRef} className="py-20 bg-navy-900">
+      <section ref={portfolioRef} className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -327,7 +327,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section with Form Animations */}
-      <section id="contact" ref={contactRef} className="py-20 bg-navy-800 scroll-mt-20">
+      <section id="contact" ref={contactRef} className="py-20 bg-gray-800 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="max-w-2xl mx-auto text-center"

@@ -27,7 +27,7 @@ export default async function PropertyPage({ params }: Props) {
   }
 
   return (
-    <div className="min-h-screen bg-navy-900 pt-24 pb-16">
+    <div className="min-h-screen bg-gray-900 pt-24 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back Link */}
         <Link
@@ -39,7 +39,7 @@ export default async function PropertyPage({ params }: Props) {
         </Link>
 
         {/* Image Gallery */}
-        <div className="relative h-96 md:h-[500px] bg-navy-800 rounded-2xl overflow-hidden mb-8 border border-gold-500/30">
+        <div className="relative h-96 md:h-[500px] bg-gray-800 rounded-2xl overflow-hidden mb-8 border border-gold-500/30">
           {property.images[0] ? (
             <Image
               src={property.images[0]}
@@ -54,7 +54,7 @@ export default async function PropertyPage({ params }: Props) {
             </div>
           )}
           {property.hasOM && (
-            <div className="absolute top-4 right-4 bg-gold-500 text-navy-900 px-4 py-2 rounded-full font-medium flex items-center gap-2">
+            <div className="absolute top-4 right-4 bg-gold-500 text-gray-900 px-4 py-2 rounded-full font-medium flex items-center gap-2">
               <Check className="h-4 w-4" />
               OM Available
             </div>
@@ -76,39 +76,39 @@ export default async function PropertyPage({ params }: Props) {
             {/* Stats */}
             <div className="flex flex-wrap gap-6 mb-8">
               {property.bedrooms > 0 && (
-                <div className="flex items-center gap-2 bg-navy-800 px-4 py-2 rounded-lg border border-white/10">
+                <div className="flex items-center gap-2 bg-gray-800 px-4 py-2 rounded-lg border border-white/10">
                   <Bed className="h-5 w-5 text-gold-400" />
                   <span className="font-medium text-white">{property.bedrooms} Bedrooms</span>
                 </div>
               )}
               {property.bathrooms > 0 && (
-                <div className="flex items-center gap-2 bg-navy-800 px-4 py-2 rounded-lg border border-white/10">
+                <div className="flex items-center gap-2 bg-gray-800 px-4 py-2 rounded-lg border border-white/10">
                   <Bath className="h-5 w-5 text-gold-400" />
                   <span className="font-medium text-white">{property.bathrooms} Bathrooms</span>
                 </div>
               )}
               {property.squareFeet > 0 && (
-                <div className="flex items-center gap-2 bg-navy-800 px-4 py-2 rounded-lg border border-white/10">
+                <div className="flex items-center gap-2 bg-gray-800 px-4 py-2 rounded-lg border border-white/10">
                   <Square className="h-5 w-5 text-gold-400" />
                   <span className="font-medium text-white">{property.squareFeet.toLocaleString()} sqft</span>
                 </div>
               )}
               {property.yearBuilt > 0 && (
-                <div className="flex items-center gap-2 bg-navy-800 px-4 py-2 rounded-lg border border-white/10">
+                <div className="flex items-center gap-2 bg-gray-800 px-4 py-2 rounded-lg border border-white/10">
                   <span className="font-medium text-white">Built {property.yearBuilt}</span>
                 </div>
               )}
             </div>
 
             {/* Description */}
-            <div className="bg-navy-800 rounded-2xl p-6 border border-white/10 mb-8">
+            <div className="bg-gray-800 rounded-2xl p-6 border border-white/10 mb-8">
               <h2 className="text-xl font-bold text-white mb-4">Description</h2>
               <p className="text-white/70 leading-relaxed">{property.description}</p>
             </div>
 
             {/* Features */}
             {property.features.length > 0 && (
-              <div className="bg-navy-800 rounded-2xl p-6 border border-white/10">
+              <div className="bg-gray-800 rounded-2xl p-6 border border-white/10">
                 <h2 className="text-xl font-bold text-white mb-4">Features</h2>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                   {property.features.map((feature, index) => (
@@ -124,14 +124,14 @@ export default async function PropertyPage({ params }: Props) {
 
           {/* Sidebar */}
           <div className="lg:col-span-1">
-            <div className="bg-navy-800 rounded-2xl p-6 border border-gold-500/30 sticky top-24">
+            <div className="bg-gray-800 rounded-2xl p-6 border border-gold-500/30 sticky top-24">
               {property.hasOM && (
                 <ProtectedOM propertyTitle={property.title} />
               )}
 
               <Link
                 href="/login"
-                className="block w-full px-4 py-3 bg-gold-500 text-navy-900 text-center rounded-lg font-medium hover:bg-gold-400 transition-colors"
+                className="block w-full px-4 py-3 bg-gold-500 text-gray-900 text-center rounded-lg font-medium hover:bg-gold-400 transition-colors"
               >
                 {property.hasOM ? 'Login to Access OM' : 'Inquire About This Property'}
               </Link>

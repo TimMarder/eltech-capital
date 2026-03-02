@@ -60,9 +60,9 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-navy-900 flex items-center justify-center pt-20 pb-16">
+    <div className="min-h-screen bg-gray-900 flex items-center justify-center pt-20 pb-16">
       <div className="max-w-md w-full mx-4">
-        <div className="bg-navy-800 rounded-2xl shadow-lg p-8 border border-gold-500/30">
+        <div className="bg-gray-800 rounded-2xl shadow-lg p-8 border border-gold-500/30">
           <h1 className="text-2xl font-bold text-white text-center mb-6">
             {isSignUp ? 'Create Your Account' : 'Login to Your Account'}
           </h1>
@@ -90,7 +90,7 @@ export default function LoginPage() {
                     type="text"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
-                    className="w-full px-4 py-3 rounded-lg bg-navy-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none"
                     required={isSignUp}
                   />
                 </div>
@@ -102,7 +102,7 @@ export default function LoginPage() {
                     type="text"
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
-                    className="w-full px-4 py-3 rounded-lg bg-navy-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none"
                     required={isSignUp}
                   />
                 </div>
@@ -117,7 +117,7 @@ export default function LoginPage() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg bg-navy-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none"
+                className="w-full px-4 py-3 rounded-lg bg-gray-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none"
                 required
               />
             </div>
@@ -130,7 +130,7 @@ export default function LoginPage() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg bg-navy-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none"
+                className="w-full px-4 py-3 rounded-lg bg-gray-900 border border-white/20 text-white placeholder-white/50 focus:border-gold-500 focus:outline-none"
                 required
                 minLength={6}
               />
@@ -151,7 +151,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full px-4 py-3 bg-gold-500 text-navy-900 rounded-lg font-medium hover:bg-gold-400 transition-colors disabled:opacity-50"
+              className="w-full px-4 py-3 bg-gold-500 text-gray-900 rounded-lg font-medium hover:bg-gold-400 transition-colors disabled:opacity-50"
             >
               {isLoading ? 'Processing...' : isSignUp ? 'Create Account' : 'Log In'}
             </button>

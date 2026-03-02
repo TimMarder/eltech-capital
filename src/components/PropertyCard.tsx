@@ -15,7 +15,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
 
   return (
     <motion.div 
-      className="bg-navy-900 rounded-xl shadow-lg overflow-hidden border border-gold-500/20 property-card"
+      className="bg-gray-900 rounded-xl shadow-lg overflow-hidden border border-gold-500/20 property-card"
       whileHover={{ 
         y: -10,
         borderColor: 'rgba(197, 160, 89, 0.5)',
@@ -28,7 +28,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
       }}
     >
       {/* Image */}
-      <div className="relative h-64 overflow-hidden bg-navy-800">
+      <div className="relative h-64 overflow-hidden bg-gray-800">
         {property.images[0] ? (
           <motion.div
             className="w-full h-full"
@@ -49,7 +49,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         ) : null}
         {property.hasOM && (
           <motion.div 
-            className="absolute top-4 right-4 bg-gold-500 text-navy-900 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1"
+            className="absolute top-4 right-4 bg-gold-500 text-gray-900 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1"
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, type: 'spring', stiffness: 300 }}
@@ -112,7 +112,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         <div className="flex items-center justify-end">
           <Link href={`/portfolio/${slug}`}>
             <motion.div
-              className="px-4 py-2 bg-gold-500 text-navy-900 rounded-lg font-medium transition-colors cursor-pointer"
+              className="px-4 py-2 bg-gold-500 text-gray-900 rounded-lg font-medium transition-colors cursor-pointer"
               whileHover={{ 
                 scale: 1.05,
                 backgroundColor: '#d4b06a',

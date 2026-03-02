@@ -92,8 +92,8 @@ export default function Navbar() {
     <motion.nav 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-navy-900/98 backdrop-blur-xl border-b border-gold-500/40 shadow-lg' 
-          : 'bg-navy-900/95 backdrop-blur-md border-b border-gold-500/30'
+          ? 'bg-gray-900/98 backdrop-blur-xl border-b border-gold-500/40 shadow-lg' 
+          : 'bg-gray-900/95 backdrop-blur-md border-b border-gold-500/30'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -150,7 +150,7 @@ export default function Navbar() {
             ) : (
               <Link href="/login">
                 <motion.div
-                  className="px-4 py-2 bg-gold-500 text-navy-900 rounded-lg font-medium hover:bg-gold-400 transition-colors"
+                  className="px-4 py-2 bg-gold-500 text-gray-900 rounded-lg font-medium hover:bg-gold-400 transition-colors"
                   whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(197, 160, 89, 0.4)' }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -209,7 +209,7 @@ export default function Navbar() {
               ) : (
                 <Link href="/login">
                   <motion.div
-                    className="block mt-4 px-4 py-2 bg-gold-500 text-navy-900 rounded-lg font-medium text-center"
+                    className="block mt-4 px-4 py-2 bg-gold-500 text-gray-900 rounded-lg font-medium text-center"
                     onClick={() => setIsOpen(false)}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
