@@ -2,7 +2,8 @@ import { getProperties, getPropertyBySlug } from '@/lib/sanity';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, Bed, Bath, Square, MapPin, Lock, Check } from 'lucide-react';
+import { ArrowLeft, Bed, Bath, Square, MapPin, Check, Mail, Phone } from 'lucide-react';
+import ProtectedOM from '@/components/ProtectedOM';
 
 export const revalidate = 60;
 
@@ -54,7 +55,7 @@ export default async function PropertyPage({ params }: Props) {
           )}
           {property.hasOM && (
             <div className="absolute top-4 right-4 bg-gold-500 text-navy-900 px-4 py-2 rounded-full font-medium flex items-center gap-2">
-              <Lock className="h-4 w-4" />
+              <Check className="h-4 w-4" />
               OM Available
             </div>
           )}
@@ -125,15 +126,7 @@ export default async function PropertyPage({ params }: Props) {
           <div className="lg:col-span-1">
             <div className="bg-navy-800 rounded-2xl p-6 border border-gold-500/30 sticky top-24">
               {property.hasOM && (
-                <div className="bg-navy-900 border border-gold-500/30 rounded-lg p-4 mb-4">
-                  <div className="flex items-center gap-2 text-gold-400 font-medium mb-2">
-                    <Lock className="h-4 w-4" />
-                    Investor Only
-                  </div>
-                  <p className="text-sm text-white/60">
-                    Login to access the Offering Memorandum for this property.
-                  </p>
-                </div>
+                <ProtectedOM propertyTitle={property.title} />
               )}
 
               <Link
@@ -143,9 +136,22 @@ export default async function PropertyPage({ params }: Props) {
                 {property.hasOM ? 'Login to Access OM' : 'Inquire About This Property'}
               </Link>
 
-              <p className="mt-4 text-sm text-white/50 text-center">
-                Or call us at (888) 886-1021
-              </p>
+              <div className="mt-4 space-y-3">
+                <a
+                  href="mailto:eltechcapital@gmail.com"
+                  className="flex items-center justify-center gap-2 w-full px-4 py-2 border border-white/20 text-white/80 rounded-lg font-medium hover:bg-white/10 transition-colors"
+                >
+                  <Mail className="h-4 w-4" />
+                  Email Us
+                </a>
+                <a
+                  href="tel:+18888861021"
+                  className="flex items-center justify-center gap-2 w-full px-4 py-2 border border-white/20 text-white/80 rounded-lg font-medium hover:bg-white/10 transition-colors"
+                >
+                  <Phone className="h-4 w-4" />
+                  (888) 886-1021
+                </a>
+              </div>
             </div>
           </div>
         </div>

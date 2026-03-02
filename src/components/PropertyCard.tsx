@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Bed, Bath, Square, MapPin, Lock } from 'lucide-react';
 import { Property } from '@/lib/sanity';
+import { motion } from 'framer-motion';
 
 interface PropertyCardProps {
   property: Property;
@@ -13,43 +14,81 @@ export default function PropertyCard({ property }: PropertyCardProps) {
   const slug = typeof property.slug === 'string' ? property.slug : property.slug?.current;
 
   return (
-    <div className="bg-navy-900 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gold-500/20">
+    <motion.div 
+      className="bg-navy-900 rounded-xl shadow-lg overflow-hidden border border-gold-500/20 property-card"
+      whileHover={{ 
+        y: -10,
+        borderColor: 'rgba(197, 160, 89, 0.5)',
+        boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(197, 160, 89, 0.2)'
+      }}
+      transition={{ 
+        type: 'spring', 
+        stiffness: 300,
+        damping: 20
+      }}
+    >
       {/* Image */}
       <div className="relative h-64 overflow-hidden bg-navy-800">
         {property.images[0] ? (
-          <Image
-            src={property.images[0]}
-            alt={property.title}
-            fill
-            className="object-cover hover:scale-105 transition-transform duration-500"
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.style.display = 'none';
-            }}
-          />
+          <motion.div
+            className="w-full h-full"
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+          >
+            <Image
+              src={property.images[0]}
+              alt={property.title}
+              fill
+              className="object-cover"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+              }}
+            />
+          </motion.div>
         ) : null}
         {property.hasOM && (
-          <div className="absolute top-4 right-4 bg-gold-500 text-navy-900 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1">
+          <motion.div 
+            className="absolute top-4 right-4 bg-gold-500 text-navy-900 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2, type: 'spring', stiffness: 300 }}
+          >
             <Lock className="h-3 w-3" />
             OM Available
-          </div>
+          </motion.div>
         )}
       </div>
 
       {/* Content */}
       <div className="p-6">
         <div className="flex items-start justify-between mb-2">
-          <h3 className="text-lg font-bold text-white line-clamp-1">
+          <motion.h3 
+            className="text-lg font-bold text-white line-clamp-1"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.1 }}
+          >
             {property.title}
-          </h3>
+          </motion.h3>
         </div>
         
-        <div className="flex items-center text-white/60 text-sm mb-4">
+        <motion.div 
+          className="flex items-center text-white/60 text-sm mb-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+        >
           <MapPin className="h-4 w-4 mr-1" />
           {property.city}, {property.state} {property.zipCode}
-        </div>
+        </motion.div>
 
-        <div className="flex items-center gap-4 text-white/60 mb-4">
+        <motion.div 
+          className="flex items-center gap-4 text-white/60 mb-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+        >
           {property.bedrooms > 0 && (
             <div className="flex items-center gap-1">
               <Bed className="h-4 w-4" />
@@ -68,17 +107,25 @@ export default function PropertyCard({ property }: PropertyCardProps) {
               <span className="text-sm">{property.squareFeet.toLocaleString()} sqft</span>
             </div>
           )}
-        </div>
+        </motion.div>
 
         <div className="flex items-center justify-end">
-          <Link
-            href={`/portfolio/${slug}`}
-            className="px-4 py-2 bg-gold-500 text-navy-900 rounded-lg font-medium hover:bg-gold-400 transition-colors"
-          >
-            View Details
+          <Link href={`/portfolio/${slug}`}>
+            <motion.div
+              className="px-4 py-2 bg-gold-500 text-navy-900 rounded-lg font-medium transition-colors cursor-pointer"
+              whileHover={{ 
+                scale: 1.05,
+                backgroundColor: '#d4b06a',
+                boxShadow: '0 0 20px rgba(197, 160, 89, 0.5)'
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: 'spring', stiffness: 300 }}
+            >
+              View Details
+            </motion.div>
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

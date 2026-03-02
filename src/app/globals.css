@@ -30,3 +30,254 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Luxury text effects */
+.luxury-text {
+  background: linear-gradient(135deg, #c5a059 0%, #d4b06a 50%, #e3c07b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 20px rgba(197, 160, 89, 0.3);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Animated gradient background */
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Gold glow effect */
+.shadow-gold {
+  box-shadow: 0 10px 40px rgba(197, 160, 89, 0.3), 
+              0 0 20px rgba(197, 160, 89, 0.2);
+}
+
+/* Stat card hover effect */
+.stat-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.stat-card:hover::before {
+  opacity: 1;
+}
+
+/* Property card effects */
+.property-card {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.property-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(197, 160, 89, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  border-radius: 0.75rem;
+}
+
+.property-card:hover::after {
+  opacity: 1;
+}
+
+/* Process step animation */
+.process-step {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.process-step::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #c5a059, transparent);
+  transition: width 0.4s ease;
+}
+
+.process-step:hover::before {
+  width: 80%;
+}
+
+/* Input focus effects */
+input:focus,
+textarea:focus {
+  box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1),
+              0 0 20px rgba(197, 160, 89, 0.2);
+}
+
+/* Loading spinner */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Fade in animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Slide up animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+/* Button pulse effect */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(197, 160, 89, 0);
+  }
+}
+
+.button-pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Luxury loader */
+.luxury-loader {
+  width: 48px;
+  height: 48px;
+  border: 3px solid rgba(197, 160, 89, 0.3);
+  border-top-color: #c5a059;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Parallax layers */
+.parallax-layer {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover glow for links */
+a:hover {
+  text-shadow: 0 0 8px rgba(197, 160, 89, 0.5);
+  transition: text-shadow 0.3s ease;
+}
+
+/* Section transitions */
+section {
+  position: relative;
+  z-index: 1;
+}
+
+/* Overlay gradient effects */
+.overlay-gradient {
+  background: linear-gradient(
+    180deg,
+    rgba(10, 25, 47, 0) 0%,
+    rgba(10, 25, 47, 0.7) 50%,
+    rgba(10, 25, 47, 0.9) 100%
+  );
+}
+
+/* Card shine effect on hover */
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  animation: shine 3s infinite;
+}
