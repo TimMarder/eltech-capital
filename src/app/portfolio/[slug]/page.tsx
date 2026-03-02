@@ -32,7 +32,7 @@ export default async function PropertyPage({ params }: Props) {
         {/* Back Link */}
         <Link
           href="/portfolio"
-          className="inline-flex items-center text-[#e0bd6b] hover:text-[#edd791] mb-6"
+          className="inline-flex items-center text-[#e0bd6b] hover:text-gold-300 mb-6"
         >
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back to Portfolio
@@ -54,7 +54,7 @@ export default async function PropertyPage({ params }: Props) {
             </div>
           )}
           {property.hasOM && (
-            <div className="absolute top-4 right-4 bg-[#d4a33b] text-[#0d1117] px-4 py-2 rounded-full font-medium flex items-center gap-2">
+            <div className="absolute top-4 right-4 bg-[#d4a33b] text-[#14181f] px-4 py-2 rounded-full font-medium flex items-center gap-2">
               <Check className="h-4 w-4" />
               OM Available
             </div>
@@ -76,39 +76,39 @@ export default async function PropertyPage({ params }: Props) {
             {/* Stats */}
             <div className="flex flex-wrap gap-6 mb-8">
               {property.bedrooms > 0 && (
-                <div className="flex items-center gap-2 bg-[#1a1f26] px-4 py-2 rounded-lg border border-[#2c323b]">
+                <div className="flex items-center gap-2 bg-[#1a1f26] px-4 py-2 rounded-lg border border-white/10">
                   <Bed className="h-5 w-5 text-[#e0bd6b]" />
                   <span className="font-medium text-[#f4f3f1]">{property.bedrooms} Bedrooms</span>
                 </div>
               )}
               {property.bathrooms > 0 && (
-                <div className="flex items-center gap-2 bg-[#1a1f26] px-4 py-2 rounded-lg border border-[#2c323b]">
+                <div className="flex items-center gap-2 bg-[#1a1f26] px-4 py-2 rounded-lg border border-white/10">
                   <Bath className="h-5 w-5 text-[#e0bd6b]" />
                   <span className="font-medium text-[#f4f3f1]">{property.bathrooms} Bathrooms</span>
                 </div>
               )}
               {property.squareFeet > 0 && (
-                <div className="flex items-center gap-2 bg-[#1a1f26] px-4 py-2 rounded-lg border border-[#2c323b]">
+                <div className="flex items-center gap-2 bg-[#1a1f26] px-4 py-2 rounded-lg border border-white/10">
                   <Square className="h-5 w-5 text-[#e0bd6b]" />
                   <span className="font-medium text-[#f4f3f1]">{property.squareFeet.toLocaleString()} sqft</span>
                 </div>
               )}
               {property.yearBuilt > 0 && (
-                <div className="flex items-center gap-2 bg-[#1a1f26] px-4 py-2 rounded-lg border border-[#2c323b]">
+                <div className="flex items-center gap-2 bg-[#1a1f26] px-4 py-2 rounded-lg border border-white/10">
                   <span className="font-medium text-[#f4f3f1]">Built {property.yearBuilt}</span>
                 </div>
               )}
             </div>
 
             {/* Description */}
-            <div className="bg-[#1a1f26] rounded-2xl p-6 border border-[#2c323b] mb-8">
+            <div className="bg-[#1a1f26] rounded-2xl p-6 border border-white/10 mb-8">
               <h2 className="text-xl font-bold text-[#f4f3f1] mb-4">Description</h2>
               <p className="text-[#f4f3f1]/70 leading-relaxed">{property.description}</p>
             </div>
 
             {/* Features */}
             {property.features.length > 0 && (
-              <div className="bg-[#1a1f26] rounded-2xl p-6 border border-[#2c323b]">
+              <div className="bg-[#1a1f26] rounded-2xl p-6 border border-white/10">
                 <h2 className="text-xl font-bold text-[#f4f3f1] mb-4">Features</h2>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                   {property.features.map((feature, index) => (
@@ -131,22 +131,22 @@ export default async function PropertyPage({ params }: Props) {
 
               <Link
                 href="/login"
-                className="block w-full px-4 py-3 bg-[#d4a33b] text-[#0d1117] text-center rounded-lg font-medium hover:bg-[#e0bd6b] transition-colors"
+                className="block w-full px-4 py-3 bg-[#d4a33b] text-[#14181f] text-center rounded-lg font-medium hover:bg-[#e0bd6b] transition-colors"
               >
                 {property.hasOM ? 'Login to Access OM' : 'Inquire About This Property'}
               </Link>
 
               <div className="mt-4 space-y-3">
                 <a
-                  href="mailto:info@eltechcapital.com"
-                  className="flex items-center justify-center gap-2 w-full px-4 py-2 border border-[#f4f3f1]/20 text-[#f4f3f1]/80 rounded-lg font-medium hover:bg-[#f4f3f1]/10 transition-colors"
+                  href="mailto:eltechcapital@gmail.com"
+                  className="flex items-center justify-center gap-2 w-full px-4 py-2 border border-white/20 text-[#f4f3f1]/80 rounded-lg font-medium hover:bg-white/10 transition-colors"
                 >
                   <Mail className="h-4 w-4" />
                   Email Us
                 </a>
                 <a
                   href="tel:+18888861021"
-                  className="flex items-center justify-center gap-2 w-full px-4 py-2 border border-[#f4f3f1]/20 text-[#f4f3f1]/80 rounded-lg font-medium hover:bg-[#f4f3f1]/10 transition-colors"
+                  className="flex items-center justify-center gap-2 w-full px-4 py-2 border border-white/20 text-[#f4f3f1]/80 rounded-lg font-medium hover:bg-white/10 transition-colors"
                 >
                   <Phone className="h-4 w-4" />
                   (888) 886-1021

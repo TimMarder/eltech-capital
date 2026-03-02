@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
-import { motion } from 'framer-motion';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -62,19 +61,11 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen bg-[#14181f] flex items-center justify-center pt-20 pb-16">
-      <motion.div 
-        className="max-w-md w-full mx-4"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
+      <div className="max-w-md w-full mx-4">
         <div className="bg-[#1a1f26] rounded-2xl shadow-lg p-8 border border-[#d4a33b]/30">
-          <h1 className="text-2xl font-bold text-[#f4f3f1] text-center mb-2">
-            {isSignUp ? 'Create Your Account' : 'Welcome Back'}
+          <h1 className="text-2xl font-bold text-[#f4f3f1] text-center mb-6">
+            {isSignUp ? 'Create Your Account' : 'Login to Your Account'}
           </h1>
-          <p className="text-[#f4f3f1]/60 text-center mb-6">
-            {isSignUp ? 'Sign up to access exclusive investment opportunities' : 'Login to access your investor account'}
-          </p>
           
           {error && (
             <div className="mb-4 p-3 bg-red-900/50 border border-red-500 text-red-300 rounded-lg text-sm">
@@ -99,7 +90,7 @@ export default function LoginPage() {
                     type="text"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
-                    className="w-full px-4 py-3 rounded-lg bg-[#232830] border border-[#2c323b] text-[#f4f3f1] placeholder-[#f4f3f1]/30 focus:border-[#d4a33b] focus:outline-none"
+                    className="w-full px-4 py-3 rounded-lg bg-[#14181f] border border-white/20 text-[#f4f3f1] placeholder-white/50 focus:border-[#d4a33b] focus:outline-none"
                     required={isSignUp}
                   />
                 </div>
@@ -111,7 +102,7 @@ export default function LoginPage() {
                     type="text"
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
-                    className="w-full px-4 py-3 rounded-lg bg-[#232830] border border-[#2c323b] text-[#f4f3f1] placeholder-[#f4f3f1]/30 focus:border-[#d4a33b] focus:outline-none"
+                    className="w-full px-4 py-3 rounded-lg bg-[#14181f] border border-white/20 text-[#f4f3f1] placeholder-white/50 focus:border-[#d4a33b] focus:outline-none"
                     required={isSignUp}
                   />
                 </div>
@@ -126,7 +117,7 @@ export default function LoginPage() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg bg-[#232830] border border-[#2c323b] text-[#f4f3f1] placeholder-[#f4f3f1]/30 focus:border-[#d4a33b] focus:outline-none"
+                className="w-full px-4 py-3 rounded-lg bg-[#14181f] border border-white/20 text-[#f4f3f1] placeholder-white/50 focus:border-[#d4a33b] focus:outline-none"
                 required
               />
             </div>
@@ -139,7 +130,7 @@ export default function LoginPage() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg bg-[#232830] border border-[#2c323b] text-[#f4f3f1] placeholder-[#f4f3f1]/30 focus:border-[#d4a33b] focus:outline-none"
+                className="w-full px-4 py-3 rounded-lg bg-[#14181f] border border-white/20 text-[#f4f3f1] placeholder-white/50 focus:border-[#d4a33b] focus:outline-none"
                 required
                 minLength={6}
               />
@@ -148,10 +139,10 @@ export default function LoginPage() {
             {!isSignUp && (
               <div className="flex items-center justify-between">
                 <label className="flex items-center">
-                  <input type="checkbox" className="mr-2 accent-[#d4a33b]" />
+                  <input type="checkbox" className="mr-2" />
                   <span className="text-sm text-[#f4f3f1]/60">Remember Me</span>
                 </label>
-                <a href="#" className="text-sm text-[#e0bd6b] hover:text-[#edd791]">
+                <a href="#" className="text-sm text-[#e0bd6b] hover:text-gold-300">
                   Forgot Password?
                 </a>
               </div>
@@ -160,7 +151,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full px-4 py-3 bg-[#d4a33b] text-[#0d1117] rounded-lg font-medium hover:bg-[#e0bd6b] transition-colors disabled:opacity-50"
+              className="w-full px-4 py-3 bg-[#d4a33b] text-[#14181f] rounded-lg font-medium hover:bg-[#e0bd6b] transition-colors disabled:opacity-50"
             >
               {isLoading ? 'Processing...' : isSignUp ? 'Create Account' : 'Log In'}
             </button>
@@ -170,13 +161,13 @@ export default function LoginPage() {
             {isSignUp ? 'Already have an account?' : "Don't have an account?"}{' '}
             <button 
               onClick={() => { setIsSignUp(!isSignUp); setError(''); setMessage(''); }}
-              className="text-[#e0bd6b] font-medium hover:text-[#edd791]"
+              className="text-[#e0bd6b] font-medium hover:text-gold-300"
             >
               {isSignUp ? 'Log In' : 'Register Now'}
             </button>
           </p>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

@@ -1,58 +1,28 @@
 @import "tailwindcss";
 
 :root {
-  /* Navy & Gold Theme - Matching Live Site */
-  --navy: #0d1117;
-  --navy-light: #1c212b;
-  --background: #14181f;
-  --card: #1a1f26;
-  --secondary: #232830;
-  --muted: #232830;
-  --border: #2c323b;
-  --foreground: #f4f3f1;
-  --card-foreground: #f4f3f1;
-  --secondary-foreground: #f4f3f1;
-  --muted-foreground: #9ca3af;
-  
-  /* Gold accent colors */
-  --gold: #d4a33b;
-  --gold-light: #e0bd6b;
+  /* Dark Navy & Gold Theme */
+  --navy-900: #14181f;
+  --navy-800: #1a1f26;
+  --navy-700: #232830;
+  --navy-600: #2c323b;
   --gold-500: #d4a33b;
   --gold-400: #e0bd6b;
-  --gold-300: #edd791;
-  --primary: #d4a33b;
-  --accent: #d4a33b;
-  --ring: #d4a33b;
-  
-  /* Legacy support */
-  --gray-900: #14181f;
-  --gray-800: #1a1f26;
-  --gray-700: #232830;
-  --gray-600: #2c323b;
+  --gold-300: #edd79b;
+  --background: #14181f;
+  --foreground: #f4f3f1;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-border: var(--border);
-  --color-navy: var(--navy);
-  --color-navy-light: var(--navy-light);
-  --color-gold: var(--gold);
-  --color-gold-light: var(--gold-light);
-  --color-gold-500: var(--gold-500);
-  --color-gold-400: var(--gold-400);
-  --color-gold-300: var(--gold-300);
-  --color-primary: var(--primary);
-  --color-accent: var(--accent);
-  --color-ring: var(--ring);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-navy-900: #14181f;
+  --color-navy-800: #1a1f26;
+  --color-navy-700: #232830;
+  --color-gold-500: #d4a33b;
+  --color-gold-400: #e0bd6b;
 }
 
 body {
@@ -68,7 +38,7 @@ html {
 
 /* Luxury text effects */
 .luxury-text {
-  background: linear-gradient(135deg, #d4a33b 0%, #e0bd6b 50%, #edd791 100%);
+  background: linear-gradient(135deg, #d4a33b 0%, #e0bd6b 50%, #edd79b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

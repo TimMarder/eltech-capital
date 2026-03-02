@@ -12,12 +12,15 @@ export default async function PortfolioPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <p className="text-[#e0bd6b] text-sm font-medium uppercase tracking-wider mb-2">Portfolio</p>
           <h1 className="text-4xl md:text-5xl font-bold text-[#f4f3f1] mb-4">
-            Featured Projects
+            Our Portfolio
           </h1>
           <p className="text-xl text-[#f4f3f1]/70 max-w-2xl mx-auto">
-            Transforming opportunities into high-performing assets.
+            Explore our collection of premium multifamily properties. 
+            <span className="block mt-2 text-sm text-[#e0bd6b]">
+              <Lock className="inline h-4 w-4 mr-1" />
+              Login to download Offer Memorandums
+            </span>
           </p>
         </div>
 
@@ -40,7 +43,7 @@ export default async function PortfolioPage() {
             <div key={property._id} className="relative">
               <PropertyCard property={property} />
               {property.hasOM && (
-                <div className="absolute top-4 left-4 bg-[#d4a33b] text-[#0d1117] px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1 z-10">
+                <div className="absolute top-4 left-4 bg-[#d4a33b] text-[#14181f] px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1">
                   <Lock className="h-3 w-3" />
                   Investor Only
                 </div>

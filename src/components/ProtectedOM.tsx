@@ -29,7 +29,7 @@ export default function ProtectedOM({ propertyTitle, omUrl }: ProtectedOMProps) 
 
   if (isLoading) {
     return (
-      <div className="bg-[#232830] border border-[#d4a33b]/30 rounded-lg p-4 mb-4">
+      <div className="bg-[#14181f] border border-[#d4a33b]/30 rounded-lg p-4 mb-4">
         <div className="animate-pulse flex items-center gap-2 text-[#e0bd6b]">
           <Lock className="h-4 w-4" />
           <span>Loading...</span>
@@ -40,7 +40,7 @@ export default function ProtectedOM({ propertyTitle, omUrl }: ProtectedOMProps) 
 
   if (!user) {
     return (
-      <div className="bg-[#232830] border border-[#d4a33b]/30 rounded-lg p-4 mb-4">
+      <div className="bg-[#14181f] border border-[#d4a33b]/30 rounded-lg p-4 mb-4">
         <div className="flex items-center gap-2 text-[#e0bd6b] font-medium mb-2">
           <Lock className="h-4 w-4" />
           Investor Only
@@ -50,7 +50,7 @@ export default function ProtectedOM({ propertyTitle, omUrl }: ProtectedOMProps) 
         </p>
         <Link
           href="/login"
-          className="block w-full px-4 py-2 bg-[#d4a33b] text-[#0d1117] text-center rounded-lg font-medium hover:bg-[#e0bd6b] transition-colors"
+          className="block w-full px-4 py-2 bg-[#d4a33b] text-[#14181f] text-center rounded-lg font-medium hover:bg-[#e0bd6b] transition-colors"
         >
           Login to Access OM
         </Link>
@@ -60,7 +60,7 @@ export default function ProtectedOM({ propertyTitle, omUrl }: ProtectedOMProps) 
 
   // User is logged in - show the OM
   return (
-    <div className="bg-[#232830] border border-green-500/30 rounded-lg p-4 mb-4">
+    <div className="bg-[#14181f] border border-green-500/30 rounded-lg p-4 mb-4">
       <div className="flex items-center gap-2 text-green-400 font-medium mb-2">
         <FileText className="h-4 w-4" />
         Offering Memorandum Available
@@ -73,7 +73,7 @@ export default function ProtectedOM({ propertyTitle, omUrl }: ProtectedOMProps) 
           href={omUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 w-full px-4 py-2 bg-green-600 text-white text-center rounded-lg font-medium hover:bg-green-500 transition-colors"
+          className="flex items-center justify-center gap-2 w-full px-4 py-2 bg-green-600 text-[#f4f3f1] text-center rounded-lg font-medium hover:bg-green-500 transition-colors"
         >
           <Download className="h-4 w-4" />
           Download OM

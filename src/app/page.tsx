@@ -125,7 +125,8 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                Welcome to ELTECH Capital
+                Building Wealth Through{' '}
+                <span className="text-[#e0bd6b] luxury-text">Strategic Real Estate</span>
               </motion.h1>
               <motion.p 
                 className="text-xl text-[#f4f3f1]/80 max-w-lg"
@@ -133,7 +134,7 @@ export default function Home() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
-                Tap Into the Power of Multifamily Real Estate
+                We identify high-performing multifamily investment opportunities backed by data, experience, and integrity.
               </motion.p>
               <motion.div 
                 className="flex flex-wrap gap-4"
@@ -142,8 +143,15 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.8 }}
               >
                 <Link
+                  href="/portfolio"
+                  className="inline-flex items-center px-6 py-3 bg-[#d4a33b] text-[#14181f] rounded-lg font-medium hover:bg-[#e0bd6b] hover:scale-105 hover:shadow-gold transition-all duration-300"
+                >
+                  View Portfolio
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+                <Link
                   href="#contact"
-                  className="inline-flex items-center px-6 py-3 bg-[#d4a33b] text-[#0d1117] rounded-lg font-medium hover:bg-[#e0bd6b] hover:scale-105 hover:shadow-gold transition-all duration-300"
+                  className="inline-flex items-center px-6 py-3 border-2 border-[#d4a33b] text-[#e0bd6b] rounded-lg font-medium hover:bg-[#d4a33b] hover:text-[#14181f] hover:scale-105 transition-all duration-300"
                 >
                   Let&apos;s Connect
                 </Link>
@@ -159,17 +167,17 @@ export default function Home() {
             >
               <motion.div 
                 className="bg-[#1a1f26]/80 backdrop-blur p-8 rounded-2xl border border-[#d4a33b]/30 text-center stat-card"
-                whileHover={{ scale: 1.05, borderColor: 'rgba(212, 163, 59, 0.6)' }}
+                whileHover={{ scale: 1.05, borderColor: 'rgba(197, 160, 89, 0.6)' }}
                 transition={{ type: 'spring', stiffness: 300 }}
               >
                 <div className="text-5xl font-bold text-[#e0bd6b] mb-2">
                   <AnimatedCounter end={18} suffix="+" />
                 </div>
-                <div className="text-[#f4f3f1]/80">Years of Experience</div>
+                <div className="text-[#f4f3f1]/80">Years Of Experience</div>
               </motion.div>
               <motion.div 
                 className="bg-[#1a1f26]/80 backdrop-blur p-8 rounded-2xl border border-[#d4a33b]/30 text-center stat-card"
-                whileHover={{ scale: 1.05, borderColor: 'rgba(212, 163, 59, 0.6)' }}
+                whileHover={{ scale: 1.05, borderColor: 'rgba(197, 160, 89, 0.6)' }}
                 transition={{ type: 'spring', stiffness: 300 }}
               >
                 <div className="text-5xl font-bold text-[#e0bd6b] mb-2">
@@ -192,45 +200,43 @@ export default function Home() {
             animate={aboutInView ? 'visible' : 'hidden'}
           >
             <motion.div variants={itemVariants}>
-              <p className="text-[#e0bd6b] text-sm font-medium uppercase tracking-wider mb-2">About Us</p>
               <h2 className="text-4xl font-bold text-[#f4f3f1] mb-6">
-                Get to Know ELTECH Capital
+                Building Wealth Through Strategic Real Estate Investments
               </h2>
               <p className="text-lg text-[#f4f3f1]/70 mb-6">
-                At ELTECH, we specialize in creating lasting value through strategic real estate investments. Our mission is to help investors build wealth and stability by identifying high-performing multifamily and commercial opportunities backed by data, experience, and integrity.
+                At ELTECH Capital, we specialize in creating lasting value through strategic real estate investments. Our mission is to help investors build wealth and stability by identifying high-performing multifamily and commercial opportunities backed by data, experience, and integrity.
               </p>
+              <ul className="space-y-4">
+                {[
+                  'Proven investment strategies',
+                  'Data-driven property selection',
+                  'Experienced management team',
+                  'Transparent investor communications',
+                ].map((item, index) => (
+                  <motion.li 
+                    key={index} 
+                    className="flex items-center gap-3"
+                    variants={itemVariants}
+                    whileHover={{ x: 10 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                  >
+                    <CheckCircle2 className="h-5 w-5 text-[#e0bd6b]" />
+                    <span className="text-[#f4f3f1]/70">{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
             </motion.div>
             <motion.div 
-              className="relative"
+              className="relative h-96 bg-[#1a1f26] rounded-2xl overflow-hidden border border-[#d4a33b]/30"
               variants={itemVariants}
+              whileHover={{ scale: 1.02, borderColor: 'rgba(197, 160, 89, 0.5)' }}
             >
-              <div className="relative h-96 bg-[#1a1f26] rounded-2xl overflow-hidden border border-[#d4a33b]/30">
-                <Image
-                  src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800"
-                  alt="Real estate partnership"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <motion.div 
-                className="mt-6 p-6 bg-[#1a1f26] rounded-xl border border-[#d4a33b]/20"
-                variants={itemVariants}
-              >
-                <h3 className="text-xl font-bold text-[#f4f3f1] mb-3">Our Values</h3>
-                <p className="text-[#f4f3f1]/70">
-                  At the core of our company are integrity, transparency, and commitment. We believe in building trust through every partnership, making decisions grounded in data, and creating lasting value for our investors and communities alike.
-                </p>
-                <div className="grid grid-cols-2 gap-4 mt-4">
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-[#e0bd6b]">25+</div>
-                    <div className="text-[#f4f3f1]/60 text-sm">Partners</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-[#e0bd6b]">15+</div>
-                    <div className="text-[#f4f3f1]/60 text-sm">Years of Experience</div>
-                  </div>
-                </div>
-              </motion.div>
+              <Image
+                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800"
+                alt="Luxury real estate"
+                fill
+                className="object-cover"
+              />
             </motion.div>
           </motion.div>
         </div>
@@ -245,9 +251,8 @@ export default function Home() {
             animate={processInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-[#e0bd6b] text-sm font-medium uppercase tracking-wider mb-2">Our Approach</p>
-            <h2 className="text-4xl font-bold text-[#f4f3f1] mb-4">Our Strategic Investment Approach</h2>
-            <p className="text-xl text-[#f4f3f1]/70">Guided by strategy, driven by execution, and focused on maximizing value.</p>
+            <h2 className="text-4xl font-bold text-[#f4f3f1] mb-4">Our Investment Process</h2>
+            <p className="text-xl text-[#f4f3f1]/70">We make real estate investing simple and profitable</p>
           </motion.div>
 
           <motion.div 
@@ -270,11 +275,11 @@ export default function Home() {
                 transition={{ type: 'spring', stiffness: 300 }}
               >
                 <motion.div 
-                  className="w-20 h-20 bg-[#232830] rounded-full flex items-center justify-center mx-auto mb-4 border border-[#d4a33b]/30"
+                  className="w-20 h-20 bg-[#1a1f26] rounded-full flex items-center justify-center mx-auto mb-4 border border-[#d4a33b]/30"
                   whileHover={{ 
                     scale: 1.1, 
-                    borderColor: 'rgba(212, 163, 59, 0.8)',
-                    boxShadow: '0 0 20px rgba(212, 163, 59, 0.4)'
+                    borderColor: 'rgba(197, 160, 89, 0.8)',
+                    boxShadow: '0 0 20px rgba(197, 160, 89, 0.4)'
                   }}
                 >
                   <span className="text-3xl font-bold text-[#e0bd6b]">{index + 1}</span>
@@ -296,12 +301,11 @@ export default function Home() {
             animate={portfolioInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-[#e0bd6b] text-sm font-medium uppercase tracking-wider mb-2">Portfolio</p>
-            <h2 className="text-4xl font-bold text-[#f4f3f1] mb-4">Featured Projects</h2>
-            <p className="text-xl text-[#f4f3f1]/70 mb-8">Transforming opportunities into high-performing assets.</p>
+            <h2 className="text-4xl font-bold text-[#f4f3f1] mb-4">Featured Properties</h2>
+            <p className="text-xl text-[#f4f3f1]/70 mb-8">Discover our premium investment opportunities</p>
             <Link
               href="/portfolio"
-              className="inline-flex items-center text-[#e0bd6b] font-medium hover:text-[#edd791] transition-colors"
+              className="inline-flex items-center text-[#e0bd6b] font-medium hover:text-gold-300 transition-colors"
             >
               View Full Portfolio <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
@@ -322,45 +326,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-[#1a1f26]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-[#f4f3f1] mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            We simplify the investment process to help you build wealth through real estate
-          </motion.h2>
-          <motion.p 
-            className="text-[#f4f3f1]/70 mb-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            Align yourself with quality
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <Link
-              href="#contact"
-              className="inline-flex items-center px-8 py-4 bg-[#d4a33b] text-[#0d1117] rounded-lg font-medium hover:bg-[#e0bd6b] hover:scale-105 hover:shadow-gold transition-all duration-300"
-            >
-              Let&apos;s Connect
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Contact Section with Form Animations */}
-      <section id="contact" ref={contactRef} className="py-20 bg-[#14181f] scroll-mt-20">
+      <section id="contact" ref={contactRef} className="py-20 bg-[#1a1f26] scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="max-w-2xl mx-auto text-center"
@@ -368,60 +335,18 @@ export default function Home() {
             initial="hidden"
             animate={contactInView ? 'visible' : 'hidden'}
           >
-            <motion.p 
-              className="text-[#e0bd6b] text-sm font-medium uppercase tracking-wider mb-2"
-              variants={itemVariants}
-            >
-              Contact
-            </motion.p>
             <motion.h2 
-              className="text-4xl font-bold text-[#f4f3f1] mb-4"
+              className="text-4xl font-bold text-[#f4f3f1] mb-6"
               variants={itemVariants}
             >
-              Get In Touch
+              Let&apos;s Connect
             </motion.h2>
             <motion.p 
-              className="text-lg text-[#f4f3f1]/70 mb-12"
+              className="text-lg text-[#f4f3f1]/70 mb-8"
               variants={itemVariants}
             >
-              We would love to hear from you
+              Ready to build wealth through real estate? Get in touch with us today.
             </motion.p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-              <motion.div 
-                className="flex items-center gap-4 p-6 bg-[#1a1f26] rounded-xl border border-[#d4a33b]/20"
-                variants={itemVariants}
-              >
-                <div className="w-12 h-12 bg-[#d4a33b]/10 rounded-full flex items-center justify-center">
-                  <svg className="w-6 h-6 text-[#d4a33b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <div className="text-left">
-                  <p className="text-[#f4f3f1]/60 text-sm">Email</p>
-                  <a href="mailto:info@eltechcapital.com" className="text-[#f4f3f1] hover:text-[#e0bd6b] transition-colors">
-                    info@eltechcapital.com
-                  </a>
-                </div>
-              </motion.div>
-              <motion.div 
-                className="flex items-center gap-4 p-6 bg-[#1a1f26] rounded-xl border border-[#d4a33b]/20"
-                variants={itemVariants}
-              >
-                <div className="w-12 h-12 bg-[#d4a33b]/10 rounded-full flex items-center justify-center">
-                  <svg className="w-6 h-6 text-[#d4a33b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                </div>
-                <div className="text-left">
-                  <p className="text-[#f4f3f1]/60 text-sm">Phone</p>
-                  <a href="tel:+18888861021" className="text-[#f4f3f1] hover:text-[#e0bd6b] transition-colors">
-                    +1 (888) 886-1021
-                  </a>
-                </div>
-              </motion.div>
-            </div>
-
             <motion.div variants={itemVariants}>
               <ContactForm />
             </motion.div>
