@@ -232,7 +232,7 @@ export default function Home() {
               whileHover={{ scale: 1.02, borderColor: 'rgba(197, 160, 89, 0.5)' }}
             >
               <Image
-                src="/images/about-partnership.jpg"
+                src="/images/about-image.webp"
                 alt="Real estate partnership"
                 fill
                 className="object-cover"
