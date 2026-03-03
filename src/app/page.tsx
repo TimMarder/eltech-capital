@@ -232,8 +232,8 @@ export default function Home() {
               whileHover={{ scale: 1.02, borderColor: 'rgba(197, 160, 89, 0.5)' }}
             >
               <Image
-                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800"
-                alt="Luxury real estate"
+                src="/images/about-partnership.jpg"
+                alt="Real estate partnership"
                 fill
                 className="object-cover"
               />
