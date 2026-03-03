@@ -23,11 +23,16 @@ export default function LoginPage() {
 
     try {
       if (isSignUp) {
+        // Get the current site URL for the redirect
+        const siteUrl = typeof window !== 'undefined' 
+          ? `${window.location.origin}/auth/callback`
+          : 'https://eltech-capital-website.vercel.app/auth/callback';
+        
         const { data, error: signUpError } = await supabase.auth.signUp({
           email,
           password,
           options: {
-            emailRedirectTo: 'https://eltech-capital-website.vercel.app/portfolio',
+            emailRedirectTo: siteUrl,
             data: {
               full_name: `${firstName} ${lastName}`.trim(),
               first_name: firstName,
@@ -45,7 +50,7 @@ export default function LoginPage() {
           });
         }
 
-        setMessage('Check your email to confirm your account!');
+        setMessage('Check your email to confirm your account! The email will come from info@eltechcapital.com.');
       } else {
         const { error: signInError } = await supabase.auth.signInWithPassword({
           email,
