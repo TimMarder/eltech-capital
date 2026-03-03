@@ -44,14 +44,6 @@ export default async function PortfolioPage() {
             <MotionDiv
               key={property._id}
               className="relative"
-              whileHover={{
-                y: -10,
-              }}
-              transition={{
-                type: 'spring',
-                stiffness: 300,
-                damping: 20
-              }}
             >
               <PropertyCard property={property} disableHover />
               {property.hasOM && (
