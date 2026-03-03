@@ -301,7 +301,7 @@ export default function Home() {
             animate={portfolioInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl font-bold text-[#f4f3f1] mb-4">Featured Properties</h2>
+            <h2 className="text-4xl font-bold text-[#f4f3f1] mb-4">Featured Projects</h2>
             <p className="text-xl text-[#f4f3f1]/70 mb-8">Discover our premium investment opportunities</p>
             <Link
               href="/portfolio"

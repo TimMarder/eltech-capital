@@ -8,21 +8,26 @@ import { motion } from 'framer-motion';
 
 interface PropertyCardProps {
   property: Property;
+  disableHover?: boolean;
 }
 
-export default function PropertyCard({ property }: PropertyCardProps) {
+export default function PropertyCard({ property, disableHover = false }: PropertyCardProps) {
   const slug = typeof property.slug === 'string' ? property.slug : property.slug?.current;
 
+  const hoverProps = disableHover ? {} : {
+    whileHover: {
+      y: -10,
+      borderColor: 'rgba(197, 160, 89, 0.5)',
+      boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(197, 160, 89, 0.2)'
+    }
+  };
+
   return (
-    <motion.div 
+    <motion.div
       className="bg-[#14181f] rounded-xl shadow-lg overflow-hidden border border-[#d4a33b]/20 property-card"
-      whileHover={{ 
-        y: -10,
-        borderColor: 'rgba(197, 160, 89, 0.5)',
-        boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(197, 160, 89, 0.2)'
-      }}
-      transition={{ 
-        type: 'spring', 
+      {...hoverProps}
+      transition={{
+        type: 'spring',
         stiffness: 300,
         damping: 20
       }}
