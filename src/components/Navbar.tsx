@@ -69,8 +69,20 @@ export default function Navbar() {
   ];
 
   const getFirstName = () => {
+    // Check profile first
     if (profile?.full_name) {
       return profile.full_name.split(' ')[0];
+    }
+    // Fallback to user metadata from auth
+    if (user?.user_metadata?.full_name) {
+      return user.user_metadata.full_name.split(' ')[0];
+    }
+    if (user?.user_metadata?.first_name) {
+      return user.user_metadata.first_name;
+    }
+    // Extract from email as last resort
+    if (user?.email) {
+      return user.email.split('@')[0];
     }
     return 'User';
   };

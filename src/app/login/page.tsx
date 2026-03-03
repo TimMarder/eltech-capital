@@ -28,6 +28,10 @@ export default function LoginPage() {
           password,
           options: {
             emailRedirectTo: 'https://eltech-capital-website.vercel.app/portfolio',
+            data: {
+              full_name: `${firstName} ${lastName}`.trim(),
+              first_name: firstName,
+            },
           },
         });
 
