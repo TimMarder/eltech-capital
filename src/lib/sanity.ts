@@ -117,14 +117,14 @@ function applyPortfolioOverrides(properties: Property[]): Property[] {
     bedrooms: 0,
     bathrooms: 0,
     squareFeet: 2488,
-    yearBuilt: 1920,
+    yearBuilt: 2020,
     description:
-      'Single-family project in Brooklyn, NY. Acquired in 2016 for $935K with a day-1 appraised value of $1.35M. Renovation investment totaled $780K, stabilized in 2018, and current appraised value is $4.3M with a minimum 10-year hold plan. NYC MapPLUTO records show 1 residential unit and approximately 2,488 building square feet.',
+      'Single-family project in Brooklyn, NY. Acquired in 2016 for $935K with a day-1 appraised value of $1.35M. Renovation investment totaled $780K, stabilized in 2018, and current appraised value is $4.3M with a minimum 10-year hold plan. The property was fully rebuilt in 2020. NYC MapPLUTO records show 1 residential unit and approximately 2,488 building square feet.',
     features: [
       'Property Type: Single-Family (1 Residential Unit, verified)',
       'Building Area: 2,488 Sq Ft (verified)',
       'Lot Area: 4,000 Sq Ft (verified)',
-      'Year Built: 1920 (verified)',
+      'Fully Rebuilt: 2020',
       'Acquired: 2016',
       'Purchase Price: $935K',
       'Day-1 Appraised Value: $1.35M',
