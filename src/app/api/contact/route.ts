@@ -32,32 +32,49 @@ export async function POST(request: NextRequest) {
     }
 
     // If EmailJS is configured, send email
-    if (EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID) {
-      const emailjsResponse = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+    if (EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID && EMAILJS_PUBLIC_KEY) {
+      const basePayload = {
+        service_id: EMAILJS_SERVICE_ID,
+        template_id: EMAILJS_TEMPLATE_ID,
+        user_id: EMAILJS_PUBLIC_KEY,
+        template_params: {
+          from_first_name: data.firstName,
+          from_last_name: data.lastName,
+          from_phone: data.phone || 'Not provided',
+          from_email: data.email,
+          message: data.message || 'No message provided',
+          to_email: 'info@eltechcapital.com',
+        },
+      };
+
+      // Attempt 1: with private key (if present)
+      let emailjsResponse = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          service_id: EMAILJS_SERVICE_ID,
-          template_id: EMAILJS_TEMPLATE_ID,
-          user_id: EMAILJS_PUBLIC_KEY,
-          accessToken: EMAILJS_PRIVATE_KEY,
-          template_params: {
-            from_first_name: data.firstName,
-            from_last_name: data.lastName,
-            from_phone: data.phone || 'Not provided',
-            from_email: data.email,
-            message: data.message || 'No message provided',
-            to_email: 'info@eltechcapital.com',
-          },
-        }),
+        body: JSON.stringify(
+          EMAILJS_PRIVATE_KEY
+            ? { ...basePayload, accessToken: EMAILJS_PRIVATE_KEY }
+            : basePayload
+        ),
       });
+
+      // Attempt 2: retry without private key (some setups only require public key)
+      if (!emailjsResponse.ok && EMAILJS_PRIVATE_KEY) {
+        emailjsResponse = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(basePayload),
+        });
+      }
 
       if (!emailjsResponse.ok) {
         const errorText = await emailjsResponse.text();
         console.error('EmailJS error:', errorText);
-        throw new Error('Failed to send email via EmailJS');
+        throw new Error(`Failed to send email via EmailJS: ${errorText}`);
       }
     } else {
       // EmailJS not configured - just log the submission
