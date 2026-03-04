@@ -41,19 +41,23 @@ export async function POST(request: NextRequest) {
         to_email: 'info@eltechcapital.com',
       };
 
-      // Official EmailJS REST payload format
+      // Strict-mode compatible payload: send both key naming variants
+      // to satisfy different EmailJS account/API configurations.
       const strictPayload = {
         service_id: EMAILJS_SERVICE_ID,
         template_id: EMAILJS_TEMPLATE_ID,
         user_id: EMAILJS_PUBLIC_KEY,
+        public_key: EMAILJS_PUBLIC_KEY,
         accessToken: EMAILJS_PRIVATE_KEY,
+        private_key: EMAILJS_PRIVATE_KEY,
         template_params: templateParams,
       };
 
-      const nonStrictPayload = {
+      const legacyPayload = {
         service_id: EMAILJS_SERVICE_ID,
         template_id: EMAILJS_TEMPLATE_ID,
         user_id: EMAILJS_PUBLIC_KEY,
+        accessToken: EMAILJS_PRIVATE_KEY,
         template_params: templateParams,
       };
 
@@ -65,14 +69,14 @@ export async function POST(request: NextRequest) {
         body: JSON.stringify(strictPayload),
       });
 
-      // fallback for non-strict projects
+      // fallback to legacy payload
       if (!emailjsResponse.ok) {
         emailjsResponse = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(nonStrictPayload),
+          body: JSON.stringify(legacyPayload),
         });
       }
 
