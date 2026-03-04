@@ -1,15 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 // EmailJS configuration
-// Sign up at https://www.emailjs.com/ and create:
-// 1. Email Service (for info@eltechcapital.com)
-// 2. Email Template
-// 3. Get your Service ID, Template ID, and Public Key
-
-const EMAILJS_SERVICE_ID = process.env.EMAILJS_SERVICE_ID || '';
-const EMAILJS_TEMPLATE_ID = process.env.EMAILJS_TEMPLATE_ID || '';
-const EMAILJS_PUBLIC_KEY = process.env.EMAILJS_PUBLIC_KEY || '';
-const EMAILJS_PRIVATE_KEY = process.env.EMAILJS_PRIVATE_KEY || '';
+const EMAILJS_SERVICE_ID = (process.env.EMAILJS_SERVICE_ID || '').trim();
+const EMAILJS_TEMPLATE_ID = (process.env.EMAILJS_TEMPLATE_ID || '').trim();
+const EMAILJS_PUBLIC_KEY = (process.env.EMAILJS_PUBLIC_KEY || '').trim();
+const EMAILJS_PRIVATE_KEY = (process.env.EMAILJS_PRIVATE_KEY || '').trim();
 
 interface ContactFormData {
   firstName: string;
@@ -34,7 +29,7 @@ export async function POST(request: NextRequest) {
     // If EmailJS is configured, send email
     if (EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID && EMAILJS_PUBLIC_KEY) {
       if (!EMAILJS_PRIVATE_KEY) {
-        throw new Error('EMAILJS_PRIVATE_KEY is not available in server runtime (Vercel env mismatch)');
+        throw new Error('EMAILJS_PRIVATE_KEY is missing in server runtime');
       }
 
       const templateParams = {
@@ -46,48 +41,31 @@ export async function POST(request: NextRequest) {
         to_email: 'info@eltechcapital.com',
       };
 
-      const payloadCandidates = [
-        // EmailJS REST format (most common)
-        {
-          service_id: EMAILJS_SERVICE_ID,
-          template_id: EMAILJS_TEMPLATE_ID,
-          user_id: EMAILJS_PUBLIC_KEY,
-          accessToken: EMAILJS_PRIVATE_KEY,
-          template_params: templateParams,
+      // Send both key name variants for compatibility with EmailJS strict mode.
+      const payload = {
+        service_id: EMAILJS_SERVICE_ID,
+        template_id: EMAILJS_TEMPLATE_ID,
+        user_id: EMAILJS_PUBLIC_KEY,
+        public_key: EMAILJS_PUBLIC_KEY,
+        accessToken: EMAILJS_PRIVATE_KEY,
+        private_key: EMAILJS_PRIVATE_KEY,
+        template_params: templateParams,
+      };
+
+      const emailjsResponse = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-        // Alternate strict-mode key names used in some setups
-        {
-          service_id: EMAILJS_SERVICE_ID,
-          template_id: EMAILJS_TEMPLATE_ID,
-          public_key: EMAILJS_PUBLIC_KEY,
-          private_key: EMAILJS_PRIVATE_KEY,
-          template_params: templateParams,
-        },
-      ];
+        body: JSON.stringify(payload),
+      });
 
-      let lastErrorText = 'Unknown EmailJS error';
-      let sent = false;
-
-      for (const payload of payloadCandidates) {
-        const emailjsResponse = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(payload),
-        });
-
-        if (emailjsResponse.ok) {
-          sent = true;
-          break;
-        }
-
-        lastErrorText = await emailjsResponse.text();
-      }
-
-      if (!sent) {
-        console.error('EmailJS error:', lastErrorText);
-        throw new Error(`Failed to send email via EmailJS: ${lastErrorText}`);
+      if (!emailjsResponse.ok) {
+        const errorText = await emailjsResponse.text();
+        console.error('EmailJS error:', errorText);
+        throw new Error(
+          `Failed to send email via EmailJS: ${errorText} | env(service=${!!EMAILJS_SERVICE_ID}, template=${!!EMAILJS_TEMPLATE_ID}, public=${!!EMAILJS_PUBLIC_KEY}, private=${!!EMAILJS_PRIVATE_KEY})`
+        );
       }
     } else {
       // EmailJS not configured - just log the submission
