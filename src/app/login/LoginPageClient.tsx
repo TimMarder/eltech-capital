@@ -17,10 +17,19 @@ export default function LoginPage() {
   const [isSignUp, setIsSignUp] = useState(false);
   const [message, setMessage] = useState('');
 
-  // Reset to login view when arriving via navigation
+  // Sync form mode with URL (?mode=signup | ?mode=login)
   useEffect(() => {
-    setIsSignUp(false);
+    const mode = searchParams.get('mode');
+    setIsSignUp(mode === 'signup');
   }, [searchParams]);
+
+  const handleAuthModeToggle = () => {
+    const nextIsSignUp = !isSignUp;
+    setIsSignUp(nextIsSignUp);
+    setError('');
+    setMessage('');
+    router.replace(`/login?mode=${nextIsSignUp ? 'signup' : 'login'}`);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -176,7 +185,7 @@ export default function LoginPage() {
           <p className="mt-6 text-center text-[#f4f3f1]/60">
             {isSignUp ? 'Already have an account?' : "Don't have an account?"}{' '}
             <button 
-              onClick={() => { setIsSignUp(!isSignUp); setError(''); setMessage(''); }}
+              onClick={handleAuthModeToggle}
               className="text-[#e0bd6b] font-medium hover:text-[#d4a33b] cursor-pointer underline"
             >
               {isSignUp ? 'Log In' : 'Register Now'}

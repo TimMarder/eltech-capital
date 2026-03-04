@@ -160,7 +160,7 @@ export default function Navbar() {
                 </motion.button>
               </div>
             ) : (
-              <Link href="/login">
+              <Link href="/login?mode=login">
                 <motion.div
                   className="px-4 py-2 bg-[#d4a33b] text-[#14181f] rounded-lg font-medium hover:bg-[#e0bd6b] transition-colors"
                   whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(197, 160, 89, 0.4)' }}
@@ -219,7 +219,7 @@ export default function Navbar() {
                   Logout
                 </motion.button>
               ) : (
-                <Link href="/login">
+                <Link href="/login?mode=login">
                   <motion.div
                     className="block mt-4 px-4 py-2 bg-[#d4a33b] text-[#14181f] rounded-lg font-medium text-center"
                     onClick={() => setIsOpen(false)}
