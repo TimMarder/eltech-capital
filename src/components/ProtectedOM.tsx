@@ -73,6 +73,7 @@ export default function ProtectedOM({ propertyTitle, omUrl }: ProtectedOMProps) 
           href={omUrl}
           target="_blank"
           rel="noopener noreferrer"
+          download
           className="flex items-center justify-center gap-2 w-full px-4 py-2 bg-green-600 text-[#f4f3f1] text-center rounded-lg font-medium hover:bg-green-500 transition-colors"
         >
           <Download className="h-4 w-4" />

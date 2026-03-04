@@ -26,6 +26,11 @@ export default async function PropertyPage({ params }: Props) {
     notFound();
   }
 
+  const omUrlBySlug: Record<string, string> = {
+    '1739-grand-ave': '/om/1739-grand-ave-1719-marmion-ave-offering-memorandum.pdf',
+  };
+  const omUrl = omUrlBySlug[slug];
+
   return (
     <div className="min-h-screen bg-[#14181f] pt-24 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -126,7 +131,7 @@ export default async function PropertyPage({ params }: Props) {
           <div className="lg:col-span-1">
             <div className="bg-[#1a1f26] rounded-2xl p-6 border border-[#d4a33b]/30 sticky top-24">
               {property.hasOM && (
-                <ProtectedOM propertyTitle={property.title} />
+                <ProtectedOM propertyTitle={property.title} omUrl={omUrl} />
               )}
 
               <Link
