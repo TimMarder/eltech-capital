@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Compass, Calculator, ShieldCheck, KeyRound, Wrench, BarChart3, Handshake } from 'lucide-react';
 import PropertyCard from '@/components/PropertyCard';
 import ContactForm from '@/components/ContactForm';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
@@ -256,36 +256,69 @@ export default function Home() {
           </motion.div>
 
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-4 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
             variants={containerVariants}
             initial="hidden"
             animate={processInView ? 'visible' : 'hidden'}
           >
             {[
-              { title: 'PLAN', desc: 'Success begins with smart planning.' },
-              { title: 'ACQUIRE', desc: 'Strong returns start with great deals.' },
-              { title: 'EXECUTE', desc: 'We take charge of every step in our business plan.' },
-              { title: 'EXIT', desc: 'Maximizing investor returns is our priority.' },
+              {
+                title: 'PLAN',
+                desc: 'Define strategy, target markets, investment criteria, and capital stack.',
+                Icon: Compass,
+              },
+              {
+                title: 'ANALYZE',
+                desc: 'Underwrite NOI, DSCR, IRR, and run sensitivity analysis before making offers.',
+                Icon: Calculator,
+              },
+              {
+                title: 'SECURE',
+                desc: 'Finalize debt, raise equity, and lock in the right capital structure.',
+                Icon: ShieldCheck,
+              },
+              {
+                title: 'ACQUIRE',
+                desc: 'Complete due diligence, close, transition operations, and take ownership.',
+                Icon: KeyRound,
+              },
+              {
+                title: 'IMPROVE / OPERATE',
+                desc: 'Execute value-add upgrades and asset-manage performance to grow NOI.',
+                Icon: Wrench,
+              },
+              {
+                title: 'STABILIZE / REFINANCE',
+                desc: 'Achieve stabilized occupancy, optimize debt costs, and recapitalize when needed.',
+                Icon: BarChart3,
+              },
+              {
+                title: 'EXIT / DISPOSITION',
+                desc: 'Time the exit, market the asset, and close the sale or refinance transaction.',
+                Icon: Handshake,
+              },
             ].map((step, index) => (
               <motion.div 
-                key={index} 
-                className="text-center process-step"
+                key={step.title} 
+                className="bg-[#14181f] rounded-2xl p-6 border border-[#d4a33b]/20 process-step"
                 variants={itemVariants}
-                whileHover={{ y: -10 }}
+                whileHover={{ y: -10, borderColor: 'rgba(197, 160, 89, 0.5)' }}
                 transition={{ type: 'spring', stiffness: 300 }}
               >
-                <motion.div 
-                  className="w-20 h-20 bg-[#1a1f26] rounded-full flex items-center justify-center mx-auto mb-4 border border-[#d4a33b]/30"
-                  whileHover={{ 
-                    scale: 1.1, 
-                    borderColor: 'rgba(197, 160, 89, 0.8)',
-                    boxShadow: '0 0 20px rgba(197, 160, 89, 0.4)'
-                  }}
-                >
-                  <span className="text-3xl font-bold text-[#e0bd6b]">{index + 1}</span>
-                </motion.div>
-                <h3 className="text-xl font-bold text-[#f4f3f1] mb-2">{step.title}</h3>
-                <p className="text-[#f4f3f1]/60">{step.desc}</p>
+                <div className="flex items-center justify-between mb-4">
+                  <motion.div 
+                    className="w-12 h-12 bg-[#1a1f26] rounded-xl flex items-center justify-center border border-[#d4a33b]/30"
+                    whileHover={{ 
+                      scale: 1.08,
+                      boxShadow: '0 0 20px rgba(197, 160, 89, 0.35)'
+                    }}
+                  >
+                    <step.Icon className="h-5 w-5 text-[#e0bd6b]" />
+                  </motion.div>
+                  <span className="text-sm font-semibold tracking-wider text-[#e0bd6b]/80">{String(index + 1).padStart(2, '0')}</span>
+                </div>
+                <h3 className="text-lg font-bold text-[#f4f3f1] mb-2">{step.title}</h3>
+                <p className="text-sm text-[#f4f3f1]/65 leading-relaxed">{step.desc}</p>
               </motion.div>
             ))}
           </motion.div>
