@@ -44,7 +44,7 @@ export default function PropertyCard({ property, disableHover = false }: Propert
               src={property.images[0]}
               alt={property.title}
               fill
-              className="object-cover"
+              className="object-contain bg-[#0f1319]"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
                 target.style.display = 'none';

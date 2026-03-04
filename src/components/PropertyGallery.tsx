@@ -35,7 +35,7 @@ export default function PropertyGallery({ images, title }: PropertyGalleryProps)
         src={validImages[activeIndex]}
         alt={`${title} image ${activeIndex + 1}`}
         fill
-        className="object-cover"
+        className="object-contain bg-[#0f1319]"
         priority
       />
 
