@@ -37,34 +37,57 @@ export async function POST(request: NextRequest) {
         throw new Error('EMAILJS_PRIVATE_KEY is not available in server runtime (Vercel env mismatch)');
       }
 
-      const payload = {
-        service_id: EMAILJS_SERVICE_ID,
-        template_id: EMAILJS_TEMPLATE_ID,
-        user_id: EMAILJS_PUBLIC_KEY,
-        accessToken: EMAILJS_PRIVATE_KEY,
-        private_key: EMAILJS_PRIVATE_KEY,
-        template_params: {
-          from_first_name: data.firstName,
-          from_last_name: data.lastName,
-          from_phone: data.phone || 'Not provided',
-          from_email: data.email,
-          message: data.message || 'No message provided',
-          to_email: 'info@eltechcapital.com',
-        },
+      const templateParams = {
+        from_first_name: data.firstName,
+        from_last_name: data.lastName,
+        from_phone: data.phone || 'Not provided',
+        from_email: data.email,
+        message: data.message || 'No message provided',
+        to_email: 'info@eltechcapital.com',
       };
 
-      const emailjsResponse = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const payloadCandidates = [
+        // EmailJS REST format (most common)
+        {
+          service_id: EMAILJS_SERVICE_ID,
+          template_id: EMAILJS_TEMPLATE_ID,
+          user_id: EMAILJS_PUBLIC_KEY,
+          accessToken: EMAILJS_PRIVATE_KEY,
+          template_params: templateParams,
         },
-        body: JSON.stringify(payload),
-      });
+        // Alternate strict-mode key names used in some setups
+        {
+          service_id: EMAILJS_SERVICE_ID,
+          template_id: EMAILJS_TEMPLATE_ID,
+          public_key: EMAILJS_PUBLIC_KEY,
+          private_key: EMAILJS_PRIVATE_KEY,
+          template_params: templateParams,
+        },
+      ];
 
-      if (!emailjsResponse.ok) {
-        const errorText = await emailjsResponse.text();
-        console.error('EmailJS error:', errorText);
-        throw new Error(`Failed to send email via EmailJS: ${errorText}`);
+      let lastErrorText = 'Unknown EmailJS error';
+      let sent = false;
+
+      for (const payload of payloadCandidates) {
+        const emailjsResponse = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+
+        if (emailjsResponse.ok) {
+          sent = true;
+          break;
+        }
+
+        lastErrorText = await emailjsResponse.text();
+      }
+
+      if (!sent) {
+        console.error('EmailJS error:', lastErrorText);
+        throw new Error(`Failed to send email via EmailJS: ${lastErrorText}`);
       }
     } else {
       // EmailJS not configured - just log the submission
