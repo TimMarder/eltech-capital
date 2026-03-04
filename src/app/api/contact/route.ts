@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
         from_phone: data.phone || 'Not provided',
         from_email: data.email,
         message: data.message || 'No message provided',
-        to_email: 'info@eltechcapital.com',
+        to_email: data.email,
       };
 
       // Strict-mode compatible payload: send both key naming variants
