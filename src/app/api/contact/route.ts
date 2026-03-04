@@ -38,7 +38,13 @@ export async function POST(request: NextRequest) {
         from_phone: data.phone || 'Not provided',
         from_email: data.email,
         message: data.message || 'No message provided',
+        // recipient aliases (depends on EmailJS template variable naming)
         to_email: data.email,
+        to: data.email,
+        email: data.email,
+        user_email: data.email,
+        recipient_email: data.email,
+        reply_to: data.email,
       };
 
       // Strict-mode compatible payload: send both key naming variants
