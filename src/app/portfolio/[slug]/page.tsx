@@ -143,7 +143,7 @@ export default async function PropertyPage({ params }: Props) {
 
               <div className="mt-4 space-y-3">
                 <a
-                  href="mailto:eltechcapital@gmail.com"
+                  href="mailto:info@eltechcapital.com"
                   className="flex items-center justify-center gap-2 w-full px-4 py-2 border border-white/20 text-[#f4f3f1]/80 rounded-lg font-medium hover:bg-white/10 transition-colors"
                 >
                   <Mail className="h-4 w-4" />

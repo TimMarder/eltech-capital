@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 // EmailJS configuration
 // Sign up at https://www.emailjs.com/ and create:
-// 1. Email Service (for eltechcapital@gmail.com)
+// 1. Email Service (for info@eltechcapital.com)
 // 2. Email Template
 // 3. Get your Service ID, Template ID, and Public Key
 
@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
             from_phone: data.phone || 'Not provided',
             from_email: data.email,
             message: data.message || 'No message provided',
-            to_email: 'eltechcapital@gmail.com',
+            to_email: 'info@eltechcapital.com',
           },
         }),
       });
