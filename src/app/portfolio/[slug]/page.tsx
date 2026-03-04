@@ -130,10 +130,10 @@ export default async function PropertyPage({ params }: Props) {
               )}
 
               <Link
-                href="/login"
+                href="/#contact"
                 className="block w-full px-4 py-3 bg-[#d4a33b] text-[#14181f] text-center rounded-lg font-medium hover:bg-[#e0bd6b] transition-colors"
               >
-                {property.hasOM ? 'Login to Access OM' : 'Inquire About This Property'}
+                Inquire About This Property
               </Link>
 
               <div className="mt-4 space-y-3">
