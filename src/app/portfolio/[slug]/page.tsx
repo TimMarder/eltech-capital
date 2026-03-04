@@ -1,6 +1,6 @@
 import { getProperties, getPropertyBySlug } from '@/lib/sanity';
 import { notFound } from 'next/navigation';
-import Image from 'next/image';
+import PropertyGallery from '@/components/PropertyGallery';
 import Link from 'next/link';
 import { ArrowLeft, Bed, Bath, Square, MapPin, Check, Mail, Phone } from 'lucide-react';
 import ProtectedOM from '@/components/ProtectedOM';
@@ -42,19 +42,7 @@ export default async function PropertyPage({ params }: Props) {
 
         {/* Image Gallery */}
         <div className="relative h-96 md:h-[500px] bg-[#1a1f26] rounded-2xl overflow-hidden mb-8 border border-[#d4a33b]/30">
-          {property.images[0] ? (
-            <Image
-              src={property.images[0]}
-              alt={property.title}
-              fill
-              className="object-cover"
-              priority
-            />
-          ) : (
-            <div className="h-full flex items-center justify-center">
-              <span className="text-[#f4f3f1]/40">No Image Available</span>
-            </div>
-          )}
+          <PropertyGallery images={property.images} title={property.title} />
           {property.hasOM && (
             <div className="absolute top-4 right-4 bg-[#d4a33b] text-[#14181f] px-4 py-2 rounded-full font-medium flex items-center gap-2">
               <Check className="h-4 w-4" />
