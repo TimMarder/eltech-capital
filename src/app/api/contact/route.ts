@@ -33,10 +33,16 @@ export async function POST(request: NextRequest) {
 
     // If EmailJS is configured, send email
     if (EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID && EMAILJS_PUBLIC_KEY) {
-      const basePayload = {
+      if (!EMAILJS_PRIVATE_KEY) {
+        throw new Error('EMAILJS_PRIVATE_KEY is not available in server runtime (Vercel env mismatch)');
+      }
+
+      const payload = {
         service_id: EMAILJS_SERVICE_ID,
         template_id: EMAILJS_TEMPLATE_ID,
         user_id: EMAILJS_PUBLIC_KEY,
+        accessToken: EMAILJS_PRIVATE_KEY,
+        private_key: EMAILJS_PRIVATE_KEY,
         template_params: {
           from_first_name: data.firstName,
           from_last_name: data.lastName,
@@ -47,29 +53,13 @@ export async function POST(request: NextRequest) {
         },
       };
 
-      // Attempt 1: with private key (if present)
-      let emailjsResponse = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+      const emailjsResponse = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(
-          EMAILJS_PRIVATE_KEY
-            ? { ...basePayload, accessToken: EMAILJS_PRIVATE_KEY }
-            : basePayload
-        ),
+        body: JSON.stringify(payload),
       });
-
-      // Attempt 2: retry without private key (some setups only require public key)
-      if (!emailjsResponse.ok && EMAILJS_PRIVATE_KEY) {
-        emailjsResponse = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(basePayload),
-        });
-      }
 
       if (!emailjsResponse.ok) {
         const errorText = await emailjsResponse.text();
