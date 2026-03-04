@@ -10,11 +10,13 @@ export default async function PortfolioPage() {
 
   const portfolioOrder = [
     '1739-grand-ave',
+    '1719-marmion-ave',
     '328-forest-dr',
     '118-surrey-dr',
     '127-lakewood-dr',
     '104-cedar-ln',
     '801-maple-ridge-ct',
+    '167-beaumont-st',
   ];
 
   const orderedProperties = [...properties].sort((a, b) => {

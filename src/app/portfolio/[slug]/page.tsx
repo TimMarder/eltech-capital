@@ -26,10 +26,7 @@ export default async function PropertyPage({ params }: Props) {
     notFound();
   }
 
-  const omUrlBySlug: Record<string, string> = {
-    '1739-grand-ave': '/om/1739-grand-ave-1719-marmion-ave-offering-memorandum.pdf',
-  };
-  const omUrl = omUrlBySlug[slug];
+  const omUrl: string | undefined = undefined;
 
   return (
     <div className="min-h-screen bg-[#14181f] pt-24 pb-16">
