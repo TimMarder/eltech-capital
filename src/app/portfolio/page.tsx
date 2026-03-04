@@ -8,6 +8,27 @@ export const revalidate = 60;
 export default async function PortfolioPage() {
   const properties = await getProperties();
 
+  const portfolioOrder = [
+    '1739-grand-ave',
+    '328-forest-dr',
+    '118-surrey-dr',
+    '127-lakewood-dr',
+    '104-cedar-ln',
+    '801-maple-ridge-ct',
+  ];
+
+  const orderedProperties = [...properties].sort((a, b) => {
+    const aSlug = a.slug?.current;
+    const bSlug = b.slug?.current;
+    const aIndex = portfolioOrder.indexOf(aSlug);
+    const bIndex = portfolioOrder.indexOf(bSlug);
+
+    const safeA = aIndex === -1 ? Number.MAX_SAFE_INTEGER : aIndex;
+    const safeB = bIndex === -1 ? Number.MAX_SAFE_INTEGER : bIndex;
+
+    return safeA - safeB;
+  });
+
   return (
     <div className="min-h-screen bg-[#14181f] pt-24 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,7 +38,7 @@ export default async function PortfolioPage() {
             Our Portfolio
           </h1>
           <p className="text-xl text-[#f4f3f1]/70 max-w-2xl mx-auto">
-            Explore our collection of premium multifamily properties. 
+            Explore our collection of premium properties. 
             <span className="block mt-2 text-sm text-[#e0bd6b]">
               <Lock className="inline h-4 w-4 mr-1" />
               Login to download Offer Memorandums
@@ -40,10 +61,10 @@ export default async function PortfolioPage() {
 
         {/* Properties Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {properties.map((property) => (
+          {orderedProperties.map((property) => (
             <MotionDiv
               key={property._id}
-              className="relative"
+              className="relative h-full"
             >
               <PropertyCard property={property} disableHover />
               {property.hasOM && (

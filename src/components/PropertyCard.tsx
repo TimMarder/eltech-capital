@@ -24,7 +24,7 @@ export default function PropertyCard({ property, disableHover = false }: Propert
 
   return (
     <motion.div
-      className="bg-[#14181f] rounded-xl shadow-lg overflow-hidden border border-[#d4a33b]/20 property-card"
+      className="bg-[#14181f] rounded-xl shadow-lg overflow-hidden border border-[#d4a33b]/20 property-card h-full flex flex-col"
       {...hoverProps}
       transition={{
         type: 'spring',
@@ -66,7 +66,7 @@ export default function PropertyCard({ property, disableHover = false }: Propert
       </div>
 
       {/* Content */}
-      <div className="p-6">
+      <div className="p-6 flex flex-col flex-1">
         <div className="flex items-start justify-between mb-2">
           <motion.h3 
             className="text-lg font-bold text-[#f4f3f1] line-clamp-1"
@@ -89,7 +89,7 @@ export default function PropertyCard({ property, disableHover = false }: Propert
         </motion.div>
 
         <motion.div 
-          className="flex items-center gap-4 text-[#f4f3f1]/60 mb-4"
+          className="flex items-center gap-4 text-[#f4f3f1]/60 mb-4 min-h-[24px]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
@@ -114,7 +114,7 @@ export default function PropertyCard({ property, disableHover = false }: Propert
           )}
         </motion.div>
 
-        <div className="flex items-center justify-end">
+        <div className="flex items-center justify-end mt-auto">
           <Link href={`/portfolio/${slug}`}>
             <motion.div
               className="px-4 py-2 bg-[#d4a33b] text-[#14181f] rounded-lg font-medium transition-colors cursor-pointer"
