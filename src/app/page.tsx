@@ -58,10 +58,11 @@ export default function Home() {
   const [featuredProperties, setFeaturedProperties] = useState<any[]>([]);
 
   useEffect(() => {
-    // Fetch properties client-side
-    import('@/lib/sanity').then(({ getFeaturedProperties }) => {
-      getFeaturedProperties().then(setFeaturedProperties);
-    });
+    // Fetch featured properties via API route (stable in client runtime)
+    fetch('/api/featured-properties')
+      .then((res) => res.json())
+      .then((data) => setFeaturedProperties(data.properties || []))
+      .catch(() => setFeaturedProperties([]));
   }, []);
 
   // Handle scroll to hash on page load
