@@ -64,6 +64,21 @@ export default function Home() {
     });
   }, []);
 
+  // Handle scroll to hash on page load
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const id = hash.substring(1);
+      const element = document.getElementById(id);
+      if (element) {
+        // Small delay to ensure page is fully rendered
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    }
+  }, []);
+
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {

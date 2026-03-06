@@ -9,6 +9,10 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "ELTECH Capital | Multifamily Real Estate Investments",
   description: "We simplify the investment process to help you build wealth through real estate. View our portfolio of multifamily properties.",
+  icons: {
+    icon: '/favicon.png',
+    apple: '/favicon.png',
+  },
 };
 
 export default function RootLayout({

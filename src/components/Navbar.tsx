@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { Menu, X, LogOut, User } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -12,6 +13,7 @@ export default function Navbar() {
   const [user, setUser] = useState<any>(null);
   const [profile, setProfile] = useState<any>(null);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     // Handle scroll effect
@@ -87,11 +89,19 @@ export default function Navbar() {
     return 'User';
   };
 
-  // Smooth scroll handler
+  // Smooth scroll handler - only works on home page, otherwise navigate to home with hash
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('/#')) {
-      e.preventDefault();
       const id = href.substring(2);
+      
+      // If not on home page, let the link navigate normally
+      if (pathname !== '/') {
+        setIsOpen(false);
+        return; // Let the default Link behavior handle it
+      }
+      
+      // On home page, do smooth scroll
+      e.preventDefault();
       const element = document.getElementById(id);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
