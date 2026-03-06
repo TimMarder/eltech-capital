@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, CheckCircle2, Compass, Calculator, ShieldCheck, KeyRound, Wrench, BarChart3, Handshake } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Compass, Search, Calculator, ShieldCheck, KeyRound, Wrench, BarChart3, Handshake } from 'lucide-react';
 import PropertyCard from '@/components/PropertyCard';
 import ContactForm from '@/components/ContactForm';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
@@ -281,6 +281,11 @@ export default function Home() {
                 title: 'PLAN',
                 desc: 'Define strategy, target markets, investment criteria, and capital stack.',
                 Icon: Compass,
+              },
+              {
+                title: 'SOURCE',
+                desc: 'Find deals that match our investment criteria, including target markets, asset type, investment strategy, and return requirements.',
+                Icon: Search,
               },
               {
                 title: 'ANALYZE',
