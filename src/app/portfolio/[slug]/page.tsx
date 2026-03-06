@@ -102,9 +102,9 @@ export default async function PropertyPage({ params }: Props) {
                 <h2 className="text-xl font-bold text-[#f4f3f1] mb-4">Features</h2>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                   {property.features.map((feature, index) => (
-                    <div key={index} className="flex items-center gap-2 text-[#f4f3f1]/70">
-                      <Check className="h-4 w-4 text-[#e0bd6b]" />
-                      <span>{feature}</span>
+                    <div key={index} className="flex items-start gap-2 text-[#f4f3f1]/70">
+                      <Check className="h-4 w-4 text-[#e0bd6b] flex-shrink-0 mt-0.5" />
+                      <span className="leading-tight">{feature}</span>
                     </div>
                   ))}
                 </div>
