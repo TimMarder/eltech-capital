@@ -9,12 +9,6 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "ELTECH Capital | Multifamily Real Estate Investments",
   description: "We simplify the investment process to help you build wealth through real estate. View our portfolio of multifamily properties.",
-  icons: {
-    icon: [
-      { url: '/favicon.png', type: 'image/png' },
-    ],
-    apple: '/favicon.png',
-  },
 };
 
 export default function RootLayout({
@@ -25,8 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.png" type="image/png" sizes="any" />
-        <link rel="apple-touch-icon" href="/favicon.png" />
+        <link rel="icon" href="/favicon-v2.png?v=2" type="image/png" />
+        <link rel="shortcut icon" href="/favicon-v2.png?v=2" type="image/png" />
+        <link rel="apple-touch-icon" href="/favicon-v2.png?v=2" />
       </head>
       <body className={inter.className}>
         <Navbar />
