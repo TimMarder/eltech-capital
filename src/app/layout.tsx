@@ -10,7 +10,9 @@ export const metadata: Metadata = {
   title: "ELTECH Capital | Multifamily Real Estate Investments",
   description: "We simplify the investment process to help you build wealth through real estate. View our portfolio of multifamily properties.",
   icons: {
-    icon: '/favicon.png',
+    icon: [
+      { url: '/favicon.png', type: 'image/png' },
+    ],
     apple: '/favicon.png',
   },
 };
@@ -22,6 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="any" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
+      </head>
       <body className={inter.className}>
         <Navbar />
         <main>{children}</main>
