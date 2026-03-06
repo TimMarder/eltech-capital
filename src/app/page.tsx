@@ -216,17 +216,17 @@ export default function Home() {
           >
             <motion.div variants={itemVariants}>
               <h2 className="text-4xl font-bold text-[#f4f3f1] mb-6">
-                Building Wealth Through Strategic Real Estate Investments
+                Institutional-Grade Real Estate Investment Execution
               </h2>
               <p className="text-lg text-[#f4f3f1]/70 mb-6">
-                At ELTECH Capital, we specialize in creating lasting value through strategic real estate investments. Our mission is to help investors build wealth and stability by identifying high-performing multifamily and commercial opportunities backed by data, experience, and integrity.
+                ELTECH Capital is a vertically integrated real estate investment and development platform focused on disciplined value creation across multifamily and strategically selected residential assets. We combine rigorous underwriting, market intelligence, and operational execution to identify mispriced opportunities, optimize asset performance, and deliver durable risk-adjusted returns. Our approach spans acquisition, capitalization, renovation oversight, asset management, and exit strategy—executed with institutional discipline, transparent governance, and a long-term ownership mindset.
               </p>
               <ul className="space-y-4">
                 {[
-                  'Proven investment strategies',
-                  'Data-driven property selection',
-                  'Experienced management team',
-                  'Transparent investor communications',
+                  'Institutional underwriting and risk-adjusted return targeting',
+                  'End-to-end execution across acquisition, development, and asset management',
+                  'Data-backed market selection and investment committee discipline',
+                  'Capital stewardship, compliance, and transparent investor reporting',
                 ].map((item, index) => (
                   <motion.li 
                     key={index} 
