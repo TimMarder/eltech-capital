@@ -90,15 +90,14 @@ function applyPortfolioOverrides(properties: Property[]): Property[] {
     price: 0,
     bedrooms: 0,
     bathrooms: 0,
-    squareFeet: 2400,
+    squareFeet: 0,
     yearBuilt: 0,
     description:
-      'Multifamily asset in the Bronx, NY. This entry is split out with dedicated imagery. Current square footage is listed as an unverified third-party estimate while official public-record metrics are being finalized.',
+      'Multifamily asset in the Bronx, NY. This entry is split out with dedicated imagery; detailed public-record metrics are being finalized.',
     features: [
       'Multifamily',
       'Bronx Submarket',
       'Income-Producing Asset',
-      'Estimated Building Size: ~2,400 Sq Ft (unverified third-party source)',
       'Official records pending final verification',
     ],
     images: ['/images/properties/1719-1.jpeg'],
