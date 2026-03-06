@@ -33,7 +33,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-[#f4f3f1]/70 text-sm mt-3">
-              We simplify the investment process to help you build wealth through strategic multifamily real estate investments.
+              Simplifying the investment process while creating long-term wealth through strategic multifamily and real estate development investments.
             </p>
           </motion.div>
 
