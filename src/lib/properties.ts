@@ -67,15 +67,7 @@ export const properties: Property[] = [
     bathrooms: 3,
     squareFeet: 3690,
     yearBuilt: 2026,
-    description: `This contemporary, luxurious SMART home offers approximately 3,690 sq ft of living space, spread across two floors. The residence features 4 bedrooms, 3 full bathrooms, and a spacious 2-car garage. The home is designed with open spaces, high ceilings, and large windows, allowing for plenty of natural light. The modern kitchen is equipped with top-of-the-line appliances, perfect for culinary enthusiasts.
-
-Built with energy-efficient materials, this home is designed to reduce energy consumption. Advanced insulation and modern HVAC systems ensure the house remains comfortable year-round while minimizing utility costs.
-
-This home boasts high-end finishes and modern design elements, including: custom European-style doors, glass railings for a sleek, open feel, energy-efficient central HVAC system, modern waterproof vinyl plank flooring, tankless water heater for on-demand hot water, and stylish, modern bathroom fixtures with LED lighting.
-
-Advanced SMART HOME features include: security system with video doorbell, smart locks, and outdoor camera system; voice-activated system to control lights, thermostats, and garage doors with ease.
-
-Key features include: living room with modern fireplace, open concept kitchen with island, granite countertops and high-end appliances, formal dining area with access to the backyard deck, large master suite with private bath and walk-in closet, large outdoor spaces including deck and landscaped yard, and heated 2-car garage with smart features.`,
+    description: `This stunning modern villa offers luxury living with 4 bedrooms and 3 bathrooms across approximately 3,690 sq ft. Features include a gourmet kitchen with premium appliances, spacious living areas, smart home technology, and energy-efficient construction. Located in the gated Hemlock Farms community with access to pools, golf, tennis, and more.`,
     features: [
       'Custom European-style doors',
       'Glass railings for sleek, open feel',
@@ -176,13 +168,7 @@ Key features include: living room with modern fireplace, open concept kitchen wi
     bathrooms: 3,
     squareFeet: 4548,
     yearBuilt: 2026,
-    description: `A brand-new, energy-efficient modern lakefront home in a gated community with custom modifications available. Home built with energy-efficient SIP framing, ensuring reduced energy consumption and comfortable living year-round. Flexible interior designs with potential adjustments to wall locations, flooring, and window sizes.
-
-Extremely rare and unique opportunity to own a brand-new energy-efficient modern lakefront home directly from the developer in one of the best communities in the area. The construction is projected to be fully completed by the end of winter 2026, with advanced SIP framing technology ensuring year-round comfort and energy efficiency.
-
-The ground floor features a sauna, mechanical room, large entertainment area with patio access, and customizable bedroom options. The first floor includes a living room with vaulted ceilings, a large family room with a fireplace, a custom-built kitchen with granite countertops and stainless steel appliances, and access to a full-size deck overlooking the lake. The second floor houses the master suite with a walk-in closet and jacuzzi, plus additional bedrooms and bathrooms.
-
-Located in the Wild Acres community with numerous amenities including lakes, skiing, fitness centers, and more. Price: $799,999 with flexible down-payment options and potential discounts for pre-payment.`,
+    description: `Expansive 5-bedroom, 3-bathroom luxury villa spanning approximately 4,548 sq ft. This exceptional property features multiple living areas, a gourmet kitchen, smart home technology, and premium finishes throughout. Perfect for large families or those seeking ample space in a prestigious community.`,
     features: [
       'Energy-efficient SIP framing',
       'Modern lakefront home',
